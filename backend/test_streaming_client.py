@@ -17,7 +17,8 @@ from backend.config import Language, Settings
 
 
 async def stream_file(path: Path, language: str, chunk_ms: int, url: str, *,
-                      observation: dict | None = None, verbose: bool = True) -> dict:
+                      observation: dict | None = None, verbose: bool = True,
+                      start_event: asyncio.Event | None = None) -> dict:
     """Optional observation retains events/timestamps even if a stream fails."""
     def emit(*args, **kwargs):
         if verbose:
@@ -37,15 +38,21 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str, *,
     events, arrivals, timing = [], [], {}
     observation = observation if observation is not None else {}
     observation.update(events=events, event_arrivals_seconds=arrivals, timing=timing)
+    observation.update(connection_success=False, bytes_sent=0, chunks_sent=0)
     emit(f"Connecting to {url}...", flush=True)
 
+    if start_event is not None:
+        await start_event.wait()
+    timing["connection_attempt_at"] = perf_counter()
     async with connect(url, proxy=None, max_size=1024 * 1024, max_queue=8) as websocket:
+        observation["connection_success"] = True
         emit("Connected successfully.", flush=True)
         await websocket.send(json.dumps({
             "type": "start", "language": language, "sample_rate": 16000,
             "channels": 1, "bit_depth": 16, "chunk_duration_ms": chunk_ms,
         }))
         ready = json.loads(await asyncio.wait_for(websocket.recv(), 15))
+        observation["start_response"] = ready
         if ready.get("type") != "ready":
             raise RuntimeError(f"Server rejected start: {ready}")
         observation["ready"] = ready
@@ -67,6 +74,7 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str, *,
                     timing["last_audio_sent_at"] = perf_counter()
                     samples_sent += len(pcm) // 2
                     chunk_index += 1
+                    observation.update(bytes_sent=samples_sent * 2, chunks_sent=chunk_index)
                     emit(f"Sending audio chunk {chunk_index}: {samples_sent / 16000:.3f}s sent", flush=True)
             sending_finished_at = perf_counter()
             timing["end_sent_at"] = perf_counter()  # Immediately before initiating the end send.

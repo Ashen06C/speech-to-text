@@ -1,0 +1,2 @@
+﻿concurrency,run,call_leg,language,stream_id,status,connection_success,session_ready,final_transcript_received,audio_duration_seconds,bytes_sent,chunks_sent,inference_seconds,queue_wait_seconds,transcript,errors,round_meets_criteria
+1,1,1,English,2a0cf035-9078-43a3-a41e-efd33e8f8d3c,CANCELLED,True,True,False,12.1531875,128000,8,,,,Cancelled by operator or resource guard; not a completed stream.,False

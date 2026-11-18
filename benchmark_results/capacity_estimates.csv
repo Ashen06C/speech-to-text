@@ -1,0 +1,6 @@
+﻿call_legs,estimated_vcpu,estimated_ram_gib,estimated_servers,status,reason
+50,600,800.0,50,ESTIMATED — CONDITIONAL,1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis.
+100,1200,1600.0,100,ESTIMATED — CONDITIONAL,1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis.
+200,2400,3200.0,200,ESTIMATED — CONDITIONAL,1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis.
+500,6000,8000.0,500,ESTIMATED — CONDITIONAL,1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis.
+1000,12000,16000.0,1000,ESTIMATED — CONDITIONAL,1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis.

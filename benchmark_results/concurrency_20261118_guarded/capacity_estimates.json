@@ -1,0 +1,70 @@
+{
+  "assumptions": {
+    "vcpu": 12,
+    "ram_gib": 16,
+    "capacity_factor": null,
+    "replicas": 1,
+    "headroom": 0.25,
+    "extra_stream_mib": 64,
+    "os_reserve_gib": 2
+  },
+  "warnings": [
+    "ESTIMATED, low-confidence conditional scenario; no production server was benchmarked.",
+    "12 laptop logical processors are not proof of equivalence to 12 cloud vCPU.",
+    "CPU, language mix, continuous-call duration, queues, power, and thermal behavior may scale nonlinearly.",
+    "Multiple replicas require separate model/runtime memory and CPU calibration; memory is not multiplied per call within one replica."
+  ],
+  "status": "NOT ESTIMATED",
+  "measured_streams": null,
+  "effective_calls_per_server": null,
+  "rows": [
+    {
+      "call_legs": 50,
+      "estimated_vcpu": null,
+      "estimated_ram_gib": null,
+      "estimated_servers": null,
+      "status": "NOT ESTIMATED",
+      "reason": "No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity."
+    },
+    {
+      "call_legs": 100,
+      "estimated_vcpu": null,
+      "estimated_ram_gib": null,
+      "estimated_servers": null,
+      "status": "NOT ESTIMATED",
+      "reason": "No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity."
+    },
+    {
+      "call_legs": 200,
+      "estimated_vcpu": null,
+      "estimated_ram_gib": null,
+      "estimated_servers": null,
+      "status": "NOT ESTIMATED",
+      "reason": "No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity."
+    },
+    {
+      "call_legs": 500,
+      "estimated_vcpu": null,
+      "estimated_ram_gib": null,
+      "estimated_servers": null,
+      "status": "NOT ESTIMATED",
+      "reason": "No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity."
+    },
+    {
+      "call_legs": 1000,
+      "estimated_vcpu": null,
+      "estimated_ram_gib": null,
+      "estimated_servers": null,
+      "status": "NOT ESTIMATED",
+      "reason": "No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity."
+    }
+  ],
+  "measured_capacity": {
+    "highest_attempted": 1,
+    "highest_successful": null,
+    "highest_meeting_criteria": null,
+    "next_higher_tested": false,
+    "maximum_established": false,
+    "note": "Highest passing short-sample level only. Admission limits, missing levels, and short runs do not establish hardware or production maximum."
+  }
+}

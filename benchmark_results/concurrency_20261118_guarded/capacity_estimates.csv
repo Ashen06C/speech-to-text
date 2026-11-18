@@ -1,0 +1,6 @@
+﻿call_legs,estimated_vcpu,estimated_ram_gib,estimated_servers,status,reason
+50,,,,NOT ESTIMATED,No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity.
+100,,,,NOT ESTIMATED,No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity.
+200,,,,NOT ESTIMATED,No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity.
+500,,,,NOT ESTIMATED,No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity.
+1000,,,,NOT ESTIMATED,No repeatedly tested concurrency level met the operating criteria; this does not prove zero physical capacity.

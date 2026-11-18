@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-19T01:35:02.922591+05:30",
+  "settings": {
+    "concurrency": null,
+    "levels": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "audio": "samples\\audios\\english.wav",
+    "language": "English",
+    "runs": 3,
+    "ws_url": "ws://127.0.0.1:8000/ws/transcribe",
+    "api_base_url": null,
+    "backend_pid": null,
+    "monitor_interval": 0.5,
+    "timeout": 120,
+    "max_clients": 4,
+    "cpu_threshold": 90,
+    "ram_threshold": 85,
+    "sustained_seconds": 3,
+    "min_available_mib": 1024,
+    "finalization_target": 5,
+    "max_queue_wait": 6,
+    "max_queue_depth": 4,
+    "inference_demand_limit": 1,
+    "pause_between_levels": false,
+    "output": "benchmark_results\\concurrency_20261119_retry2",
+    "limits": {
+      "cpu_percent": 90,
+      "ram_percent": 85,
+      "sustained_seconds": 3,
+      "min_available_mib": 1024,
+      "finalization_seconds": 5,
+      "queue_wait_seconds": 6,
+      "max_queue_depth": 4,
+      "inference_demand_limit": 1
+    }
+  },
+  "system": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i5-13420H",
+    "operating_system": "Windows-11-10.0.26200-SP0",
+    "cpu_physical_cores": 8,
+    "cpu_logical_processors": 12,
+    "total_ram_bytes": 16824262656,
+    "python_version": "3.12.10",
+    "model": "Qwen3-ASR-0.6B",
+    "device": "cpu",
+    "runtime": "PyTorch CPU / Transformers",
+    "backend_pid": 26412,
+    "backend_process_created_at": 1795000229.3985384,
+    "backend_command": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "uvicorn",
+      "backend.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8000",
+      "--workers",
+      "1"
+    ],
+    "package_versions_local_environment": {
+      "torch": "2.15.0+cpu",
+      "qwen-asr": "0.0.6",
+      "psutil": "7.2.2",
+      "jiwer": "4.0.0",
+      "websockets": "17.4"
+    },
+    "configured_cpu_threads": 6,
+    "thread_configuration_source": "Backend process environment or source defaults; live torch count unavailable on this already-running server",
+    "torch_num_threads": null,
+    "torch_version_live": null,
+    "window_ms": 3000,
+    "chunk_duration_ms": 500,
+    "model_load_time_seconds": null,
+    "model_loading_note": "Separate cached startup load; NOT MEASURED if null. Existing server is never restarted by this runner.",
+    "system_endpoint": {
+      "cpu_logical_processors": 12,
+      "cpu_physical_cores": 8,
+      "total_ram_bytes": 16824262656,
+      "total_ram_gb": 15.67,
+      "python_version": "3.12.10",
+      "process_ram_bytes": 143917056,
+      "process_ram_mb": 137.25,
+      "model": "Qwen3-ASR-0.6B",
+      "device": "cpu"
+    }
+  },
+  "backend_configuration": {
+    "max_sessions": 2,
+    "pending_windows_per_session": 4,
+    "window_ms": 3000,
+    "streaming_executor_workers": 1,
+    "maximum_shared_model_inferences": 1,
+    "source": "Live diagnostics when exposed; otherwise backend environment/source defaults. Executor and lock verified in source.",
+    "queue_depth_observation": "Client-derived unfinished-window proxy; exact live server queue depth is unavailable."
+  },
+  "sample": {
+    "language": "English",
+    "audio": "samples\\audios\\english.wav",
+    "reference": "",
+    "reference_verified": false,
+    "format_status": "PASS",
+    "duration_seconds": 12.1531875,
+    "reference_available": false,
+    "reference_text": null,
+    "reference_status": "NOT TESTED",
+    "errors": [],
+    "sample_rate": 16000,
+    "channels": 1,
+    "subtype": "PCM_16",
+    "container": "WAV",
+    "audio_sha256": "277b9f5c85738ec698d0974c0e3faaf206519a144c552b500ebc26d8411f8bc5"
+  },
+  "rounds": [
+    {
+      "concurrency": 1,
+      "run": 1,
+      "started_at": "2026-11-19T01:35:03.175396+05:30",
+      "calls": [
+        {
+          "call_leg": 1,
+          "concurrency": 1,
+          "run": 1,
+          "language": "English",
+          "audio_duration_seconds": 12.1531875,
+          "status": "CANCELLED",
+          "errors": [
+            "Cancelled by operator or resource guard; not a completed stream."
+          ],
+          "observation": {
+            "events": [],
+            "event_arrivals_seconds": [],
+            "timing": {
+              "connection_attempt_at": 613108.1715582,
+              "stream_started_at": 613108.1866764,
+              "last_audio_sent_at": 613112.1890377
+            },
+            "connection_success": true,
+            "bytes_sent": 128000,
+            "chunks_sent": 8,
+            "start_response": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "24f91c7e-5ae0-417c-970b-e0a18fde95fb"
+            },
+            "ready": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "24f91c7e-5ae0-417c-970b-e0a18fde95fb"
+            }
+          },
+          "connection_success": true,
+          "bytes_sent": 128000,
+          "chunks_sent": 8,
+          "stream_id": "24f91c7e-5ae0-417c-970b-e0a18fde95fb",
+          "session_ready": true,
+          "final_transcript_received": false,
+          "final_transcript": null,
+          "observed_windows": [],
+          "client_latency": {
+            "time_to_first_transcript_seconds": null,
+            "first_transcript_before_last_audio": null,
+            "finalization_from_end_seconds": null,
+            "finalization_from_last_audio_seconds": null,
+            "total_end_to_end_seconds": null
+          }
+        }
+      ],
+      "guardrail_reasons": [
+        "System RAM 86.68% reached 85.00% guardrail.",
+        "System RAM 90.29% reached 85.00% guardrail.",
+        "System RAM 91.00% reached 85.00% guardrail.",
+        "System RAM 93.23% reached 85.00% guardrail.",
+        "System RAM 94.55% reached 85.00% guardrail.",
+        "System RAM 95.42% reached 85.00% guardrail.",
+        "System RAM 97.54% reached 85.00% guardrail.",
+        "System RAM 96.34% reached 85.00% guardrail."
+      ],
+      "backlog_samples": [
+        {
+          "elapsed_seconds": 0.5288158999755979,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.0335586000001058,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.5270921000046656,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.0269786999560893,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.528142499970272,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.028230999945663,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.52878839999903,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        }
+      ],
+      "queue_growth_detected": false,
+      "resources": {
+        "pid": 26412,
+        "process_created_at": 1795000229.3985384,
+        "interval_seconds": 0.5,
+        "children_included": false,
+        "samples": [
+          {
+            "elapsed_seconds": 0.00035930005833506584,
+            "stage": "before",
+            "interval_seconds": 0,
+            "system_cpu_percent": null,
+            "process_cpu_percent": null,
+            "process_rss_bytes": 143917056,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2899611648,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 0.5089642000384629,
+            "stage": "during",
+            "interval_seconds": 0.5086048999801278,
+            "system_cpu_percent": 22.1,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 145969152,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2889801728,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 1.0263257999904454,
+            "stage": "during",
+            "interval_seconds": 0.5173615999519825,
+            "system_cpu_percent": 16.1,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 146124800,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2891661312,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 1.541817900026217,
+            "stage": "during",
+            "interval_seconds": 0.5154921000357717,
+            "system_cpu_percent": 19.4,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 146305024,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2889269248,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 2.0591253000311553,
+            "stage": "during",
+            "interval_seconds": 0.5173074000049382,
+            "system_cpu_percent": 15.9,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 146395136,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2903752704,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 2.5756100000580773,
+            "stage": "during",
+            "interval_seconds": 0.5164847000269219,
+            "system_cpu_percent": 15.2,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 146481152,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2905128960,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 3.091658000019379,
+            "stage": "during",
+            "interval_seconds": 0.5160479999613017,
+            "system_cpu_percent": 19.1,
+            "process_cpu_percent": 33.3,
+            "process_rss_bytes": 161693696,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2906845184,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 3.6092381000053138,
+            "stage": "during",
+            "interval_seconds": 0.5175800999859348,
+            "system_cpu_percent": 71.3,
+            "process_cpu_percent": 459.0,
+            "process_rss_bytes": 690872320,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 2240679936,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 4.129870100063272,
+            "stage": "during",
+            "interval_seconds": 0.5206320000579581,
+            "system_cpu_percent": 65.4,
+            "process_cpu_percent": 357.3,
+            "process_rss_bytes": 1173848064,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 1633497088,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 4.642081000027247,
+            "stage": "during",
+            "interval_seconds": 0.512210899963975,
+            "system_cpu_percent": 55.1,
+            "process_cpu_percent": 293.7,
+            "process_rss_bytes": 1460822016,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 1514835968,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 5.158749400055967,
+            "stage": "during",
+            "interval_seconds": 0.5166684000287205,
+            "system_cpu_percent": 75.1,
+            "process_cpu_percent": 443.0,
+            "process_rss_bytes": 1926569984,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 1139073024,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 5.6758146999636665,
+            "stage": "during",
+            "interval_seconds": 0.5170652999076992,
+            "system_cpu_percent": 62.7,
+            "process_cpu_percent": 393.7,
+            "process_rss_bytes": 2351620096,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 916099072,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 6.192488600034267,
+            "stage": "during",
+            "interval_seconds": 0.5166739000706002,
+            "system_cpu_percent": 51.5,
+            "process_cpu_percent": 215.4,
+            "process_rss_bytes": 2609229824,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 770547712,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 6.712382600060664,
+            "stage": "during",
+            "interval_seconds": 0.5198940000263974,
+            "system_cpu_percent": 63.3,
+            "process_cpu_percent": 427.0,
+            "process_rss_bytes": 2563014656,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 413601792,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 7.042422799975611,
+            "stage": "after",
+            "interval_seconds": 0.33004019991494715,
+            "system_cpu_percent": 79.6,
+            "process_cpu_percent": 543.1,
+            "process_rss_bytes": 2812436480,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 616484864,
+            "child_process_ids": []
+          }
+        ],
+        "summary": {
+          "system_cpu_percent": {
+            "mean": 44.26104796251847,
+            "peak": 79.6
+          },
+          "process_cpu_percent": {
+            "mean": 218.14566961759152,
+            "peak": 543.1
+          },
+          "process_rss_mib": {
+            "count": 15,
+            "mean": 1057.0080729166666,
+            "min": 137.25,
+            "max": 2682.1484375
+          },
+          "available_ram_mib": {
+            "count": 15,
+            "mean": 1877.5234375,
+            "min": 394.44140625,
+            "max": 2772.18359375
+          },
+          "cpu_sample_count": 14,
+          "cpu_observed_seconds": 7.042063499917276
+        },
+        "errors": []
+      },
+      "elapsed_seconds": 7.052259699907154,
+      "connection_start_spread_seconds": 0.0,
+      "inference_demand_ratio": null,
+      "acceptance": {
+        "meets_criteria": false,
+        "reasons": [
+          "System RAM 86.68% reached 85.00% guardrail.",
+          "System RAM 90.29% reached 85.00% guardrail.",
+          "System RAM 91.00% reached 85.00% guardrail.",
+          "System RAM 93.23% reached 85.00% guardrail.",
+          "System RAM 94.55% reached 85.00% guardrail.",
+          "System RAM 95.42% reached 85.00% guardrail.",
+          "System RAM 97.54% reached 85.00% guardrail.",
+          "System RAM 96.34% reached 85.00% guardrail.",
+          "Not every requested call completed with valid transcript events."
+        ],
+        "scope": "Short-recording operating criteria; not proof of long-call or production sustainability."
+      }
+    }
+  ],
+  "levels": [
+    {
+      "concurrency": 1,
+      "executed_runs": 1,
+      "required_runs": 3,
+      "requested_streams": 1,
+      "completed_streams": 0,
+      "failed_streams": 1,
+      "success_rate": 0.0,
+      "all_runs_successful": false,
+      "meets_criteria": false,
+      "time_to_first_transcript_seconds": {
+        "count": 0,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "p50": null,
+        "p95": null
+      },
+      "finalization_from_end_seconds": {
+        "count": 0,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "p50": null,
+        "p95": null
+      },
+      "total_end_to_end_seconds": {
+        "count": 0,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "p50": null,
+        "p95": null
+      },
+      "window_queue_wait_seconds": {
+        "count": 0,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "p50": null,
+        "p95": null
+      },
+      "resources": {
+        "system_cpu_percent": {
+          "mean": 44.26104796251847,
+          "peak": 79.6
+        },
+        "process_cpu_percent": {
+          "mean": 218.14566961759152,
+          "peak": 543.1
+        },
+        "process_rss_mib": {
+          "count": 15,
+          "mean": 1057.0080729166666,
+          "min": 137.25,
+          "max": 2682.1484375
+        },
+        "available_ram_mib": {
+          "count": 15,
+          "mean": 1877.5234375,
+          "min": 394.44140625,
+          "max": 2772.18359375
+        },
+        "cpu_sample_count": 14,
+        "cpu_observed_seconds": 7.042063499917276
+      },
+      "total_test_seconds": 7.052259699907154
+    }
+  ],
+  "stopped_reason": "System RAM 86.68% reached 85.00% guardrail.; System RAM 90.29% reached 85.00% guardrail.; System RAM 91.00% reached 85.00% guardrail.; System RAM 93.23% reached 85.00% guardrail.; System RAM 94.55% reached 85.00% guardrail.; System RAM 95.42% reached 85.00% guardrail.; System RAM 97.54% reached 85.00% guardrail.; System RAM 96.34% reached 85.00% guardrail.; Not every requested call completed with valid transcript events.",
+  "capacity": {
+    "highest_attempted": 1,
+    "highest_successful": null,
+    "highest_meeting_criteria": null,
+    "next_higher_tested": false,
+    "maximum_established": false,
+    "note": "Highest passing short-sample level only. Admission limits, missing levels, and short runs do not establish hardware or production maximum."
+  },
+  "untested_levels": [
+    2,
+    3,
+    4
+  ]
+}

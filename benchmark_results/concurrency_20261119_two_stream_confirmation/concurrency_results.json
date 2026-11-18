@@ -1,0 +1,1517 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-19T01:44:11.995426+05:30",
+  "settings": {
+    "concurrency": 2,
+    "levels": null,
+    "audio": "samples\\audios\\english.wav",
+    "language": "English",
+    "runs": 1,
+    "ws_url": "ws://127.0.0.1:8000/ws/transcribe",
+    "api_base_url": null,
+    "backend_pid": null,
+    "monitor_interval": 0.5,
+    "timeout": 120,
+    "max_clients": 4,
+    "cpu_threshold": 90,
+    "ram_threshold": 85,
+    "sustained_seconds": 3,
+    "min_available_mib": 1024,
+    "finalization_target": 5,
+    "max_queue_wait": 6,
+    "max_queue_depth": 4,
+    "inference_demand_limit": 1,
+    "pause_between_levels": false,
+    "output": "benchmark_results\\concurrency_20261119_two_stream_confirmation",
+    "limits": {
+      "cpu_percent": 90,
+      "ram_percent": 85,
+      "sustained_seconds": 3,
+      "min_available_mib": 1024,
+      "finalization_seconds": 5,
+      "queue_wait_seconds": 6,
+      "max_queue_depth": 4,
+      "inference_demand_limit": 1
+    }
+  },
+  "system": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i5-13420H",
+    "operating_system": "Windows-11-10.0.26200-SP0",
+    "cpu_physical_cores": 8,
+    "cpu_logical_processors": 12,
+    "total_ram_bytes": 16824262656,
+    "python_version": "3.12.10",
+    "model": "Qwen3-ASR-0.6B",
+    "device": "cpu",
+    "runtime": "PyTorch CPU / Transformers",
+    "backend_pid": 16036,
+    "backend_process_created_at": 1795032644.9522593,
+    "backend_command": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "uvicorn",
+      "backend.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8000",
+      "--workers",
+      "1"
+    ],
+    "package_versions_local_environment": {
+      "torch": "2.15.0+cpu",
+      "qwen-asr": "0.0.6",
+      "psutil": "7.2.2",
+      "jiwer": "4.0.0",
+      "websockets": "17.4"
+    },
+    "configured_cpu_threads": 6,
+    "thread_configuration_source": "Live /api/system",
+    "torch_num_threads": 6,
+    "torch_version_live": "2.15.0+cpu",
+    "window_ms": 3000,
+    "chunk_duration_ms": 500,
+    "model_load_time_seconds": 35.938451199999975,
+    "model_loading_note": "Separate cached startup load; NOT MEASURED if null. Existing server is never restarted by this runner.",
+    "system_endpoint": {
+      "cpu_logical_processors": 12,
+      "cpu_physical_cores": 8,
+      "total_ram_bytes": 16824262656,
+      "total_ram_gb": 15.67,
+      "python_version": "3.12.10",
+      "process_ram_bytes": 3812081664,
+      "process_ram_mb": 3635.48,
+      "model": "Qwen3-ASR-0.6B",
+      "device": "cpu",
+      "process_id": 16036,
+      "available_ram_bytes": 5001449472,
+      "operating_system": "Windows-11-10.0.26200-SP0",
+      "configured_cpu_threads": 6,
+      "torch_num_threads": 6,
+      "torch_version": "2.15.0+cpu",
+      "window_ms": 3000,
+      "model_load_time_seconds": 35.938451199999975
+    }
+  },
+  "backend_configuration": {
+    "max_sessions": 2,
+    "pending_windows_per_session": 4,
+    "window_ms": 3000,
+    "streaming_executor_workers": 1,
+    "maximum_shared_model_inferences": 1,
+    "source": "Live diagnostics when exposed; otherwise backend environment/source defaults. Executor and lock verified in source.",
+    "queue_depth_observation": "Client-derived unfinished-window proxy; exact live server queue depth is unavailable."
+  },
+  "sample": {
+    "language": "English",
+    "audio": "samples\\audios\\english.wav",
+    "reference": "",
+    "reference_verified": false,
+    "format_status": "PASS",
+    "duration_seconds": 12.1531875,
+    "reference_available": false,
+    "reference_text": null,
+    "reference_status": "NOT TESTED",
+    "errors": [],
+    "sample_rate": 16000,
+    "channels": 1,
+    "subtype": "PCM_16",
+    "container": "WAV",
+    "audio_sha256": "277b9f5c85738ec698d0974c0e3faaf206519a144c552b500ebc26d8411f8bc5"
+  },
+  "rounds": [
+    {
+      "concurrency": 2,
+      "run": 1,
+      "started_at": "2026-11-19T01:44:12.129158+05:30",
+      "calls": [
+        {
+          "call_leg": 1,
+          "concurrency": 2,
+          "run": 1,
+          "language": "English",
+          "audio_duration_seconds": 12.1531875,
+          "status": "COMPLETED",
+          "errors": [],
+          "observation": {
+            "events": [
+              {
+                "type": "segment_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "segment_index": 0,
+                "language": "English",
+                "text": "Hello. This is my test on the speech recognition.",
+                "audio_start_seconds": 0.0,
+                "audio_end_seconds": 3.0,
+                "inference_time_seconds": 1.3312138000000004,
+                "queue_wait_time_seconds": 1.3082708000000025
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "segment_index": 1,
+                "language": "English",
+                "text": "I am speaking clearly. So.",
+                "audio_start_seconds": 3.0,
+                "audio_end_seconds": 6.0,
+                "inference_time_seconds": 1.085400399999969,
+                "queue_wait_time_seconds": 1.0791273000000388
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "segment_index": 2,
+                "language": "English",
+                "text": "We can measure how quickly the words appear on the screen.",
+                "audio_start_seconds": 6.0,
+                "audio_end_seconds": 9.0,
+                "inference_time_seconds": 1.43372149999999,
+                "queue_wait_time_seconds": 0.00025990000000319924
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "segment_index": 3,
+                "language": "English",
+                "text": "Green. Thank you for listening.",
+                "audio_start_seconds": 9.0,
+                "audio_end_seconds": 12.0,
+                "inference_time_seconds": 1.1396698000000356,
+                "queue_wait_time_seconds": 0.00020159999996849365
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "segment_index": 4,
+                "language": "English",
+                "text": "I'm sorry.",
+                "audio_start_seconds": 12.0,
+                "audio_end_seconds": 12.1531875,
+                "inference_time_seconds": 0.525102000000004,
+                "queue_wait_time_seconds": 2.164361900000017
+              },
+              {
+                "type": "final_transcript",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "language": "English",
+                "text": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry."
+              },
+              {
+                "type": "metrics",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+                "time_to_first_transcript_seconds": 5.655270299999984,
+                "last_audio_to_final_seconds": 2.6909565999999927,
+                "stream_duration_seconds": 14.853633699999989,
+                "total_audio_duration_seconds": 12.1531875,
+                "total_inference_time_seconds": 5.515107499999999,
+                "total_queue_wait_time_seconds": 4.55222150000003,
+                "windows": [
+                  {
+                    "segment_index": 0,
+                    "inference_time_seconds": 1.3312138000000004,
+                    "queue_wait_time_seconds": 1.3082708000000025
+                  },
+                  {
+                    "segment_index": 1,
+                    "inference_time_seconds": 1.085400399999969,
+                    "queue_wait_time_seconds": 1.0791273000000388
+                  },
+                  {
+                    "segment_index": 2,
+                    "inference_time_seconds": 1.43372149999999,
+                    "queue_wait_time_seconds": 0.00025990000000319924
+                  },
+                  {
+                    "segment_index": 3,
+                    "inference_time_seconds": 1.1396698000000356,
+                    "queue_wait_time_seconds": 0.00020159999996849365
+                  },
+                  {
+                    "segment_index": 4,
+                    "inference_time_seconds": 0.525102000000004,
+                    "queue_wait_time_seconds": 2.164361900000017
+                  }
+                ]
+              },
+              {
+                "type": "completed",
+                "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8"
+              }
+            ],
+            "event_arrivals_seconds": [
+              5.655477500000018,
+              8.182372299999997,
+              10.432348300000001,
+              13.153361099999984,
+              14.853529500000036,
+              14.85383619999999,
+              14.853848400000004,
+              14.853947100000028
+            ],
+            "timing": {
+              "connection_attempt_at": 444.40897,
+              "stream_started_at": 444.4113645,
+              "last_audio_sent_at": 456.5735706,
+              "first_transcript_at": 450.066842,
+              "end_sent_at": 456.5736514,
+              "final_transcript_at": 459.2652007,
+              "completed_at": 459.2653116
+            },
+            "connection_success": true,
+            "bytes_sent": 388902,
+            "chunks_sent": 25,
+            "start_response": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8"
+            },
+            "ready": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8"
+            },
+            "progressive_update_before_upload_complete": true
+          },
+          "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+          "transcript": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry.",
+          "client_latency": {
+            "time_to_first_transcript_seconds": 5.655477500000018,
+            "first_transcript_before_last_audio": true,
+            "finalization_from_end_seconds": 2.691549299999963,
+            "finalization_from_last_audio_seconds": 2.6916300999999976,
+            "total_end_to_end_seconds": 14.853947100000028,
+            "audio_transmission_seconds": 12.162206099999992
+          },
+          "windows": [
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 0,
+              "language": "English",
+              "text": "Hello. This is my test on the speech recognition.",
+              "audio_start_seconds": 0.0,
+              "audio_end_seconds": 3.0,
+              "inference_time_seconds": 1.3312138000000004,
+              "queue_wait_time_seconds": 1.3082708000000025
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 1,
+              "language": "English",
+              "text": "I am speaking clearly. So.",
+              "audio_start_seconds": 3.0,
+              "audio_end_seconds": 6.0,
+              "inference_time_seconds": 1.085400399999969,
+              "queue_wait_time_seconds": 1.0791273000000388
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 2,
+              "language": "English",
+              "text": "We can measure how quickly the words appear on the screen.",
+              "audio_start_seconds": 6.0,
+              "audio_end_seconds": 9.0,
+              "inference_time_seconds": 1.43372149999999,
+              "queue_wait_time_seconds": 0.00025990000000319924
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 3,
+              "language": "English",
+              "text": "Green. Thank you for listening.",
+              "audio_start_seconds": 9.0,
+              "audio_end_seconds": 12.0,
+              "inference_time_seconds": 1.1396698000000356,
+              "queue_wait_time_seconds": 0.00020159999996849365
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 4,
+              "language": "English",
+              "text": "I'm sorry.",
+              "audio_start_seconds": 12.0,
+              "audio_end_seconds": 12.1531875,
+              "inference_time_seconds": 0.525102000000004,
+              "queue_wait_time_seconds": 2.164361900000017
+            }
+          ],
+          "inference_seconds": 5.515107499999999,
+          "queue_wait_seconds": 4.55222150000003,
+          "connection_success": true,
+          "bytes_sent": 388902,
+          "chunks_sent": 25,
+          "session_ready": true,
+          "final_transcript_received": true,
+          "final_transcript": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry.",
+          "observed_windows": [
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 0,
+              "language": "English",
+              "text": "Hello. This is my test on the speech recognition.",
+              "audio_start_seconds": 0.0,
+              "audio_end_seconds": 3.0,
+              "inference_time_seconds": 1.3312138000000004,
+              "queue_wait_time_seconds": 1.3082708000000025
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 1,
+              "language": "English",
+              "text": "I am speaking clearly. So.",
+              "audio_start_seconds": 3.0,
+              "audio_end_seconds": 6.0,
+              "inference_time_seconds": 1.085400399999969,
+              "queue_wait_time_seconds": 1.0791273000000388
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 2,
+              "language": "English",
+              "text": "We can measure how quickly the words appear on the screen.",
+              "audio_start_seconds": 6.0,
+              "audio_end_seconds": 9.0,
+              "inference_time_seconds": 1.43372149999999,
+              "queue_wait_time_seconds": 0.00025990000000319924
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 3,
+              "language": "English",
+              "text": "Green. Thank you for listening.",
+              "audio_start_seconds": 9.0,
+              "audio_end_seconds": 12.0,
+              "inference_time_seconds": 1.1396698000000356,
+              "queue_wait_time_seconds": 0.00020159999996849365
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "9b73ccf2-5b7c-4bfc-a970-72ea56b37af8",
+              "segment_index": 4,
+              "language": "English",
+              "text": "I'm sorry.",
+              "audio_start_seconds": 12.0,
+              "audio_end_seconds": 12.1531875,
+              "inference_time_seconds": 0.525102000000004,
+              "queue_wait_time_seconds": 2.164361900000017
+            }
+          ]
+        },
+        {
+          "call_leg": 2,
+          "concurrency": 2,
+          "run": 1,
+          "language": "English",
+          "audio_duration_seconds": 12.1531875,
+          "status": "COMPLETED",
+          "errors": [],
+          "observation": {
+            "events": [
+              {
+                "type": "segment_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "segment_index": 0,
+                "language": "English",
+                "text": "Hello. This is my test on the speech recognition.",
+                "audio_start_seconds": 0.0,
+                "audio_end_seconds": 3.0,
+                "inference_time_seconds": 1.3089363000000276,
+                "queue_wait_time_seconds": 0.00013519999998834464
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "segment_index": 1,
+                "language": "English",
+                "text": "I am speaking clearly. So.",
+                "audio_start_seconds": 3.0,
+                "audio_end_seconds": 6.0,
+                "inference_time_seconds": 1.0801270000000045,
+                "queue_wait_time_seconds": 0.0002498000000059619
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "segment_index": 2,
+                "language": "English",
+                "text": "We can measure how quickly the words appear on the screen.",
+                "audio_start_seconds": 6.0,
+                "audio_end_seconds": 9.0,
+                "inference_time_seconds": 1.4891193000000271,
+                "queue_wait_time_seconds": 1.4331814000000236
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "segment_index": 3,
+                "language": "English",
+                "text": "Green. Thank you for listening.",
+                "audio_start_seconds": 9.0,
+                "audio_end_seconds": 12.0,
+                "inference_time_seconds": 1.1748752999999965,
+                "queue_wait_time_seconds": 1.1391560999999797
+              },
+              {
+                "type": "segment_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "segment_index": 4,
+                "language": "English",
+                "text": "I'm sorry.",
+                "audio_start_seconds": 12.0,
+                "audio_end_seconds": 12.1531875,
+                "inference_time_seconds": 0.5237108000000035,
+                "queue_wait_time_seconds": 2.6895369000000073
+              },
+              {
+                "type": "final_transcript",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "language": "English",
+                "text": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry."
+              },
+              {
+                "type": "metrics",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+                "time_to_first_transcript_seconds": 4.324368499999991,
+                "last_audio_to_final_seconds": 3.2139813000000004,
+                "stream_duration_seconds": 15.376646499999993,
+                "total_audio_duration_seconds": 12.1531875,
+                "total_inference_time_seconds": 5.576768700000059,
+                "total_queue_wait_time_seconds": 5.262259400000005,
+                "windows": [
+                  {
+                    "segment_index": 0,
+                    "inference_time_seconds": 1.3089363000000276,
+                    "queue_wait_time_seconds": 0.00013519999998834464
+                  },
+                  {
+                    "segment_index": 1,
+                    "inference_time_seconds": 1.0801270000000045,
+                    "queue_wait_time_seconds": 0.0002498000000059619
+                  },
+                  {
+                    "segment_index": 2,
+                    "inference_time_seconds": 1.4891193000000271,
+                    "queue_wait_time_seconds": 1.4331814000000236
+                  },
+                  {
+                    "segment_index": 3,
+                    "inference_time_seconds": 1.1748752999999965,
+                    "queue_wait_time_seconds": 1.1391560999999797
+                  },
+                  {
+                    "segment_index": 4,
+                    "inference_time_seconds": 0.5237108000000035,
+                    "queue_wait_time_seconds": 2.6895369000000073
+                  }
+                ]
+              },
+              {
+                "type": "completed",
+                "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0"
+              }
+            ],
+            "event_arrivals_seconds": [
+              4.323810900000012,
+              7.096403800000019,
+              11.921305599999982,
+              14.32814159999998,
+              15.376496400000008,
+              15.37666200000001,
+              15.37667399999998,
+              15.37676190000002
+            ],
+            "timing": {
+              "connection_attempt_at": 444.4093538,
+              "stream_started_at": 444.4115941,
+              "last_audio_sent_at": 456.5738152,
+              "first_transcript_at": 448.735405,
+              "end_sent_at": 456.5738422,
+              "final_transcript_at": 459.7882561,
+              "completed_at": 459.788356
+            },
+            "connection_success": true,
+            "bytes_sent": 388902,
+            "chunks_sent": 25,
+            "start_response": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0"
+            },
+            "ready": {
+              "type": "ready",
+              "message": "Audio streaming session started",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0"
+            },
+            "progressive_update_before_upload_complete": true
+          },
+          "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+          "transcript": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry.",
+          "client_latency": {
+            "time_to_first_transcript_seconds": 4.323810900000012,
+            "first_transcript_before_last_audio": true,
+            "finalization_from_end_seconds": 3.214413900000011,
+            "finalization_from_last_audio_seconds": 3.2144408999999996,
+            "total_end_to_end_seconds": 15.37676190000002,
+            "audio_transmission_seconds": 12.16222110000001
+          },
+          "windows": [
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 0,
+              "language": "English",
+              "text": "Hello. This is my test on the speech recognition.",
+              "audio_start_seconds": 0.0,
+              "audio_end_seconds": 3.0,
+              "inference_time_seconds": 1.3089363000000276,
+              "queue_wait_time_seconds": 0.00013519999998834464
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 1,
+              "language": "English",
+              "text": "I am speaking clearly. So.",
+              "audio_start_seconds": 3.0,
+              "audio_end_seconds": 6.0,
+              "inference_time_seconds": 1.0801270000000045,
+              "queue_wait_time_seconds": 0.0002498000000059619
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 2,
+              "language": "English",
+              "text": "We can measure how quickly the words appear on the screen.",
+              "audio_start_seconds": 6.0,
+              "audio_end_seconds": 9.0,
+              "inference_time_seconds": 1.4891193000000271,
+              "queue_wait_time_seconds": 1.4331814000000236
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 3,
+              "language": "English",
+              "text": "Green. Thank you for listening.",
+              "audio_start_seconds": 9.0,
+              "audio_end_seconds": 12.0,
+              "inference_time_seconds": 1.1748752999999965,
+              "queue_wait_time_seconds": 1.1391560999999797
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 4,
+              "language": "English",
+              "text": "I'm sorry.",
+              "audio_start_seconds": 12.0,
+              "audio_end_seconds": 12.1531875,
+              "inference_time_seconds": 0.5237108000000035,
+              "queue_wait_time_seconds": 2.6895369000000073
+            }
+          ],
+          "inference_seconds": 5.576768700000059,
+          "queue_wait_seconds": 5.262259400000005,
+          "connection_success": true,
+          "bytes_sent": 388902,
+          "chunks_sent": 25,
+          "session_ready": true,
+          "final_transcript_received": true,
+          "final_transcript": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry.",
+          "observed_windows": [
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 0,
+              "language": "English",
+              "text": "Hello. This is my test on the speech recognition.",
+              "audio_start_seconds": 0.0,
+              "audio_end_seconds": 3.0,
+              "inference_time_seconds": 1.3089363000000276,
+              "queue_wait_time_seconds": 0.00013519999998834464
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 1,
+              "language": "English",
+              "text": "I am speaking clearly. So.",
+              "audio_start_seconds": 3.0,
+              "audio_end_seconds": 6.0,
+              "inference_time_seconds": 1.0801270000000045,
+              "queue_wait_time_seconds": 0.0002498000000059619
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 2,
+              "language": "English",
+              "text": "We can measure how quickly the words appear on the screen.",
+              "audio_start_seconds": 6.0,
+              "audio_end_seconds": 9.0,
+              "inference_time_seconds": 1.4891193000000271,
+              "queue_wait_time_seconds": 1.4331814000000236
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 3,
+              "language": "English",
+              "text": "Green. Thank you for listening.",
+              "audio_start_seconds": 9.0,
+              "audio_end_seconds": 12.0,
+              "inference_time_seconds": 1.1748752999999965,
+              "queue_wait_time_seconds": 1.1391560999999797
+            },
+            {
+              "type": "segment_transcript",
+              "stream_id": "8415c545-def3-4e0d-83d7-f72db59119a0",
+              "segment_index": 4,
+              "language": "English",
+              "text": "I'm sorry.",
+              "audio_start_seconds": 12.0,
+              "audio_end_seconds": 12.1531875,
+              "inference_time_seconds": 0.5237108000000035,
+              "queue_wait_time_seconds": 2.6895369000000073
+            }
+          ]
+        }
+      ],
+      "guardrail_reasons": [],
+      "backlog_samples": [
+        {
+          "elapsed_seconds": 0.5114821000000234,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 0.5114876000000095,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.009520000000009,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.0095244999999977,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.5269521999999824,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 1.5269627000000128,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.012534599999981,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.0125375000000076,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.524881999999991,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 2.5248862999999915,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.0278726000000233,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.027874900000029,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.528939400000013,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 3.528944899999999,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 4.028456800000015,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 4.028459399999974,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 4.509462600000006,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 4.509465999999975,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 5.009007699999984,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 5.0090126000000055,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 5.5253223000000276,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 5.525327000000004,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 6.029976999999974,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 6.029980899999998,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 6.527733699999999,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 6.527738999999997,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 7.028350699999976,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 7.028358900000001,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 7.511262699999975,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 7.511266599999999,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 8.0100506,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 8.01005520000001,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 8.509933499999988,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 8.509945399999992,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 9.009041299999978,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 9.009045000000015,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 9.525243499999988,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 9.525251099999991,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 10.026191100000005,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 10.026198799999975,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 10.528157599999986,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 10.52816180000002,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 11.030294799999979,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 11.03029859999998,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 11.527130199999988,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 11.527134900000021,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 12.025251200000014,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 12.025255000000016,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 12.524971600000015,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 12.524977400000012,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 13.025138400000003,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 13.025142800000026,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 13.525254000000018,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 13.525258300000019,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 14.02562180000001,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 14.025630400000011,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 2,
+          "pending_windows_proxy": 1
+        },
+        {
+          "elapsed_seconds": 14.525066400000014,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 14.525073599999985,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 15.026307900000006,
+          "call_leg": 1,
+          "unfinished_windows_proxy": 0,
+          "pending_windows_proxy": 0
+        },
+        {
+          "elapsed_seconds": 15.026315399999987,
+          "call_leg": 2,
+          "unfinished_windows_proxy": 1,
+          "pending_windows_proxy": 0
+        }
+      ],
+      "queue_growth_detected": false,
+      "resources": {
+        "pid": 16036,
+        "process_created_at": 1795032644.9522593,
+        "interval_seconds": 0.5,
+        "children_included": false,
+        "samples": [
+          {
+            "elapsed_seconds": 0.0008743000000208667,
+            "stage": "before",
+            "interval_seconds": 0,
+            "system_cpu_percent": null,
+            "process_cpu_percent": null,
+            "process_rss_bytes": 3812085760,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5000454144,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 0.5113618999999971,
+            "stage": "during",
+            "interval_seconds": 0.5104875999999763,
+            "system_cpu_percent": 9.0,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 3812085760,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4996157440,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 1.0254136000000358,
+            "stage": "during",
+            "interval_seconds": 0.5140517000000386,
+            "system_cpu_percent": 4.5,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 3812085760,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4998262784,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 1.529575800000032,
+            "stage": "during",
+            "interval_seconds": 0.5041621999999961,
+            "system_cpu_percent": 4.9,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 3812085760,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4998725632,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 2.041737600000033,
+            "stage": "during",
+            "interval_seconds": 0.5121618000000012,
+            "system_cpu_percent": 5.2,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 3812130816,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4999311360,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 2.5590045000000146,
+            "stage": "during",
+            "interval_seconds": 0.5172668999999814,
+            "system_cpu_percent": 4.3,
+            "process_cpu_percent": 0.0,
+            "process_rss_bytes": 3812134912,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5018042368,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 3.0749648999999977,
+            "stage": "during",
+            "interval_seconds": 0.5159603999999831,
+            "system_cpu_percent": 9.7,
+            "process_cpu_percent": 52.9,
+            "process_rss_bytes": 3857358848,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4967559168,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 3.591389700000036,
+            "stage": "during",
+            "interval_seconds": 0.5164248000000384,
+            "system_cpu_percent": 53.3,
+            "process_cpu_percent": 591.6,
+            "process_rss_bytes": 3817758720,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5006794752,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 4.108853900000042,
+            "stage": "during",
+            "interval_seconds": 0.5174642000000063,
+            "system_cpu_percent": 52.1,
+            "process_cpu_percent": 587.5,
+            "process_rss_bytes": 3824783360,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5006065664,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 4.624864500000001,
+            "stage": "during",
+            "interval_seconds": 0.5160105999999587,
+            "system_cpu_percent": 52.6,
+            "process_cpu_percent": 593.5,
+            "process_rss_bytes": 3851042816,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4974653440,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 5.142478400000016,
+            "stage": "during",
+            "interval_seconds": 0.5176139000000148,
+            "system_cpu_percent": 52.7,
+            "process_cpu_percent": 579.5,
+            "process_rss_bytes": 3819229184,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5006880768,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 5.659780800000021,
+            "stage": "during",
+            "interval_seconds": 0.5173024000000055,
+            "system_cpu_percent": 52.7,
+            "process_cpu_percent": 584.4,
+            "process_rss_bytes": 3824836608,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5005557760,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 6.176261400000044,
+            "stage": "during",
+            "interval_seconds": 0.5164806000000226,
+            "system_cpu_percent": 33.9,
+            "process_cpu_percent": 358.0,
+            "process_rss_bytes": 3858817024,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4965949440,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 6.6930287000000135,
+            "stage": "during",
+            "interval_seconds": 0.5167672999999695,
+            "system_cpu_percent": 56.7,
+            "process_cpu_percent": 584.4,
+            "process_rss_bytes": 3818795008,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4996673536,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 7.2005060000000185,
+            "stage": "during",
+            "interval_seconds": 0.507477300000005,
+            "system_cpu_percent": 53.9,
+            "process_cpu_percent": 584.4,
+            "process_rss_bytes": 3854385152,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4963483648,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 7.709649300000024,
+            "stage": "during",
+            "interval_seconds": 0.5091433000000052,
+            "system_cpu_percent": 53.1,
+            "process_cpu_percent": 590.6,
+            "process_rss_bytes": 3817238528,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4999778304,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 8.225105000000042,
+            "stage": "during",
+            "interval_seconds": 0.5154557000000182,
+            "system_cpu_percent": 54.3,
+            "process_cpu_percent": 585.6,
+            "process_rss_bytes": 3823644672,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5004021760,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 8.742446900000004,
+            "stage": "during",
+            "interval_seconds": 0.5173418999999626,
+            "system_cpu_percent": 21.2,
+            "process_cpu_percent": 160.5,
+            "process_rss_bytes": 3823644672,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4999413760,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 9.258684600000038,
+            "stage": "during",
+            "interval_seconds": 0.5162377000000333,
+            "system_cpu_percent": 26.3,
+            "process_cpu_percent": 281.6,
+            "process_rss_bytes": 3855966208,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4966567936,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 9.776271699999995,
+            "stage": "during",
+            "interval_seconds": 0.5175870999999574,
+            "system_cpu_percent": 52.8,
+            "process_cpu_percent": 588.6,
+            "process_rss_bytes": 3818921984,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5000052736,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 10.291568900000016,
+            "stage": "during",
+            "interval_seconds": 0.5152972000000204,
+            "system_cpu_percent": 53.2,
+            "process_cpu_percent": 587.5,
+            "process_rss_bytes": 3824455680,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5002375168,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 10.808136700000034,
+            "stage": "during",
+            "interval_seconds": 0.5165678000000185,
+            "system_cpu_percent": 54.5,
+            "process_cpu_percent": 585.6,
+            "process_rss_bytes": 3826728960,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4995805184,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 11.32493020000004,
+            "stage": "during",
+            "interval_seconds": 0.5167935000000057,
+            "system_cpu_percent": 53.9,
+            "process_cpu_percent": 572.7,
+            "process_rss_bytes": 3853295616,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4973387776,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 11.841542800000013,
+            "stage": "during",
+            "interval_seconds": 0.5166125999999736,
+            "system_cpu_percent": 53.9,
+            "process_cpu_percent": 594.7,
+            "process_rss_bytes": 3823386624,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4997554176,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 12.358378900000048,
+            "stage": "during",
+            "interval_seconds": 0.5168361000000345,
+            "system_cpu_percent": 53.4,
+            "process_cpu_percent": 569.3,
+            "process_rss_bytes": 3861598208,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4964581376,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 12.875457299999994,
+            "stage": "during",
+            "interval_seconds": 0.5170783999999458,
+            "system_cpu_percent": 54.0,
+            "process_cpu_percent": 587.5,
+            "process_rss_bytes": 3819044864,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5004046336,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 13.392387100000008,
+            "stage": "during",
+            "interval_seconds": 0.516929800000014,
+            "system_cpu_percent": 55.7,
+            "process_cpu_percent": 579.5,
+            "process_rss_bytes": 3853828096,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 4969230336,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 13.911240700000008,
+            "stage": "during",
+            "interval_seconds": 0.5188535999999999,
+            "system_cpu_percent": 52.2,
+            "process_cpu_percent": 584.4,
+            "process_rss_bytes": 3818934272,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5003075584,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 14.426031100000046,
+            "stage": "during",
+            "interval_seconds": 0.5147904000000381,
+            "system_cpu_percent": 55.2,
+            "process_cpu_percent": 594.7,
+            "process_rss_bytes": 3824263168,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5002428416,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 14.9428992,
+            "stage": "during",
+            "interval_seconds": 0.5168680999999538,
+            "system_cpu_percent": 54.4,
+            "process_cpu_percent": 578.4,
+            "process_rss_bytes": 3817857024,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5007142912,
+            "child_process_ids": []
+          },
+          {
+            "elapsed_seconds": 15.39116690000003,
+            "stage": "after",
+            "interval_seconds": 0.4482677000000308,
+            "system_cpu_percent": 54.9,
+            "process_cpu_percent": 589.8,
+            "process_rss_bytes": 3810181120,
+            "total_ram_bytes": 16824262656,
+            "available_ram_bytes": 5013536768,
+            "child_process_ids": []
+          }
+        ],
+        "summary": {
+          "system_cpu_percent": {
+            "mean": 41.60467336403994,
+            "peak": 56.7
+          },
+          "process_cpu_percent": {
+            "mean": 438.1426701867913,
+            "peak": 594.7
+          },
+          "process_rss_mib": {
+            "count": 31,
+            "mean": 3650.8069556451615,
+            "min": 3633.671875,
+            "max": 3682.70703125
+          },
+          "available_ram_mib": {
+            "count": 31,
+            "mean": 4762.451738911291,
+            "min": 4733.546875,
+            "max": 4785.578125
+          },
+          "cpu_sample_count": 30,
+          "cpu_observed_seconds": 15.39029260000001
+        },
+        "errors": []
+      },
+      "elapsed_seconds": 15.396637899999973,
+      "connection_start_spread_seconds": 0.00038380000000870496,
+      "inference_demand_ratio": 0.9126721857948837,
+      "acceptance": {
+        "meets_criteria": true,
+        "reasons": [],
+        "scope": "Short-recording operating criteria; not proof of long-call or production sustainability."
+      }
+    }
+  ],
+  "levels": [
+    {
+      "concurrency": 2,
+      "executed_runs": 1,
+      "required_runs": 1,
+      "requested_streams": 2,
+      "completed_streams": 2,
+      "failed_streams": 0,
+      "success_rate": 1.0,
+      "all_runs_successful": true,
+      "meets_criteria": true,
+      "time_to_first_transcript_seconds": {
+        "count": 2,
+        "mean": 4.989644200000015,
+        "min": 4.323810900000012,
+        "max": 5.655477500000018,
+        "p50": 4.989644200000015,
+        "p95": 5.588894170000017
+      },
+      "finalization_from_end_seconds": {
+        "count": 2,
+        "mean": 2.952981599999987,
+        "min": 2.691549299999963,
+        "max": 3.214413900000011,
+        "p50": 2.952981599999987,
+        "p95": 3.1882706700000085
+      },
+      "total_end_to_end_seconds": {
+        "count": 2,
+        "mean": 15.115354500000024,
+        "min": 14.853947100000028,
+        "max": 15.37676190000002,
+        "p50": 15.115354500000024,
+        "p95": 15.35062116000002
+      },
+      "window_queue_wait_seconds": {
+        "count": 10,
+        "mean": 0.9814480900000035,
+        "min": 0.00013519999998834464,
+        "max": 2.6895369000000073,
+        "p50": 1.1091417000000092,
+        "p95": 2.453208150000012
+      },
+      "resources": {
+        "system_cpu_percent": {
+          "mean": 41.60467336403994,
+          "peak": 56.7
+        },
+        "process_cpu_percent": {
+          "mean": 438.1426701867913,
+          "peak": 594.7
+        },
+        "process_rss_mib": {
+          "count": 31,
+          "mean": 3650.8069556451615,
+          "min": 3633.671875,
+          "max": 3682.70703125
+        },
+        "available_ram_mib": {
+          "count": 31,
+          "mean": 4762.451738911291,
+          "min": 4733.546875,
+          "max": 4785.578125
+        },
+        "cpu_sample_count": 30,
+        "cpu_observed_seconds": 15.39029260000001
+      },
+      "total_test_seconds": 15.396637899999973
+    }
+  ],
+  "stopped_reason": null,
+  "capacity": {
+    "highest_attempted": 2,
+    "highest_successful": 2,
+    "highest_meeting_criteria": 2,
+    "next_higher_tested": false,
+    "maximum_established": false,
+    "note": "Highest passing short-sample level only. Admission limits, missing levels, and short runs do not establish hardware or production maximum."
+  },
+  "untested_levels": []
+}

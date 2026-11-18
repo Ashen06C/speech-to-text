@@ -1,0 +1,85 @@
+{
+  "assumptions": {
+    "vcpu": 12,
+    "ram_gib": 16.0,
+    "capacity_factor": 1.0,
+    "replicas": 1,
+    "headroom": 0.25,
+    "extra_stream_mib": 64,
+    "os_reserve_gib": 2,
+    "headroom_basis": "inference_time"
+  },
+  "warnings": [
+    "ESTIMATED, low-confidence conditional scenario; no production server was benchmarked.",
+    "12 laptop logical processors are not proof of equivalence to 12 cloud vCPU.",
+    "CPU, language mix, continuous-call duration, queues, power, and thermal behavior may scale nonlinearly.",
+    "Multiple replicas require separate model/runtime memory and CPU calibration; memory is not multiplied per call within one replica."
+  ],
+  "status": "ESTIMATED — CONDITIONAL",
+  "measured_streams": 1,
+  "effective_calls_per_server": 1,
+  "rows": [
+    {
+      "call_legs": 50,
+      "estimated_vcpu": 600,
+      "estimated_ram_gib": 800.0,
+      "estimated_servers": 50,
+      "status": "ESTIMATED — CONDITIONAL",
+      "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+    },
+    {
+      "call_legs": 100,
+      "estimated_vcpu": 1200,
+      "estimated_ram_gib": 1600.0,
+      "estimated_servers": 100,
+      "status": "ESTIMATED — CONDITIONAL",
+      "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+    },
+    {
+      "call_legs": 200,
+      "estimated_vcpu": 2400,
+      "estimated_ram_gib": 3200.0,
+      "estimated_servers": 200,
+      "status": "ESTIMATED — CONDITIONAL",
+      "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+    },
+    {
+      "call_legs": 500,
+      "estimated_vcpu": 6000,
+      "estimated_ram_gib": 8000.0,
+      "estimated_servers": 500,
+      "status": "ESTIMATED — CONDITIONAL",
+      "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+    },
+    {
+      "call_legs": 1000,
+      "estimated_vcpu": 12000,
+      "estimated_ram_gib": 16000.0,
+      "estimated_servers": 1000,
+      "status": "ESTIMATED — CONDITIONAL",
+      "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+    }
+  ],
+  "measured_capacity": {
+    "highest_attempted": 2,
+    "highest_successful": 2,
+    "highest_meeting_criteria": 1,
+    "next_higher_tested": true,
+    "maximum_established": false,
+    "note": "Highest passing short-sample level only. Admission limits, missing levels, and short runs do not establish hardware or production maximum."
+  },
+  "worst_measured_passing_call_rtf": 0.5553412962648716,
+  "inference_time_capacity_after_headroom": 1.3505208509512416,
+  "measured_call_bound": 1.0,
+  "shared_backend_peak_mib_per_replica": 4257.671875,
+  "fixed_process_and_os_gib": 6.1578826904296875,
+  "assumed_calls_before_headroom": 1.0,
+  "calls_after_cpu_headroom": 1,
+  "memory_limited_calls": 158,
+  "planned_memory_per_server_gib": 6.1578826904296875,
+  "source": {
+    "path": "D:\\speech-to-text\\benchmark_results\\concurrency_results.json",
+    "sha256": "20884eb5f6cad5b0f8257a54d546dba89aa3b75a49bf315d3dbec393c26211cd",
+    "recorded_at": "2026-11-19T01:41:58.133751+05:30"
+  }
+}
