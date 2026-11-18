@@ -1,0 +1,58 @@
+﻿language,run,type,stream_id,segment_index,text,audio_start_seconds,audio_end_seconds,inference_time_seconds,queue_wait_time_seconds
+English,1,segment_transcript,f5707f71-3c86-4aee-9292-fbaded167493,0,Hello. This is my test on the speech recognition.,0.0,3.0,5.852185999974608,0.0031336999963968992
+English,1,segment_transcript,f5707f71-3c86-4aee-9292-fbaded167493,1,I am speaking clearly. So.,3.0,6.0,1.7371955999406055,2.861472800024785
+English,1,segment_transcript,f5707f71-3c86-4aee-9292-fbaded167493,2,We can measure how quickly the words appear on the screen.,6.0,9.0,1.7914166999980807,1.6002572999568656
+English,1,segment_transcript,f5707f71-3c86-4aee-9292-fbaded167493,3,Green. Thank you for listening.,9.0,12.0,1.3430368000408635,0.3956862000050023
+English,1,segment_transcript,f5707f71-3c86-4aee-9292-fbaded167493,4,I'm sorry.,12.0,12.1531875,0.6153813999844715,1.5896995000075549
+English,2,segment_transcript,0fa61545-f59f-4677-a450-971b32660a60,0,Hello. This is my test on the speech recognition.,0.0,3.0,1.6222777999937534,0.00021920003928244114
+English,2,segment_transcript,0fa61545-f59f-4677-a450-971b32660a60,1,I am speaking clearly. So.,3.0,6.0,1.3146359000820667,0.00012409989722073078
+English,2,segment_transcript,0fa61545-f59f-4677-a450-971b32660a60,2,We can measure how quickly the words appear on the screen.,6.0,9.0,1.7352655999129638,0.00014100002590566874
+English,2,segment_transcript,0fa61545-f59f-4677-a450-971b32660a60,3,Green. Thank you for listening.,9.0,12.0,1.2879072000505403,0.0003412999212741852
+English,2,segment_transcript,0fa61545-f59f-4677-a450-971b32660a60,4,I'm sorry.,12.0,12.1531875,0.6058187999296933,1.1383595000952482
+English,3,segment_transcript,95d4935f-75b4-4195-84ef-04e56506076f,0,Hello. This is my test on the speech recognition.,0.0,3.0,1.5986024999292567,0.00020260002929717302
+English,3,segment_transcript,95d4935f-75b4-4195-84ef-04e56506076f,1,I am speaking clearly. So.,3.0,6.0,1.4566496000625193,0.000156699912622571
+English,3,segment_transcript,95d4935f-75b4-4195-84ef-04e56506076f,2,We can measure how quickly the words appear on the screen.,6.0,9.0,1.6897868000669405,0.00018599990289658308
+English,3,segment_transcript,95d4935f-75b4-4195-84ef-04e56506076f,3,Green. Thank you for listening.,9.0,12.0,1.3325485000386834,0.00015400000847876072
+English,3,segment_transcript,95d4935f-75b4-4195-84ef-04e56506076f,4,I'm sorry.,12.0,12.1531875,0.6203805000986904,1.176703399978578
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,0,你好，欢迎参加亲子。,0.0,3.0,1.2405739999376237,0.00015980005264282227
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,1,边的语音识别测试。,3.0,6.0,1.2886907000793144,0.00020619994029402733
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,2,现在我正在，我不懂。,6.0,9.0,1.4188662000233307,0.00019479996990412474
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,3,哇，请检查屏幕上。,9.0,12.0,1.2438048999756575,0.00017450004816055298
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,4,看的文字是否正确？,12.0,15.0,1.126613299944438,0.00013170007150620222
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,5,我们还要车辆系统着。,15.0,18.0,1.1881599000189453,0.00014720007311552763
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,6,响应时间。谢谢。,18.0,21.0,1.184392899973318,0.0003133999416604638
+Chinese,1,segment_transcript,59bfb422-fe7d-45bc-bf51-db44ee21691e,7,。,21.0,21.5893125,0.42493360000662506,0.5837497999891639
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,0,你好，欢迎参加亲子。,0.0,3.0,1.2314805999631062,0.00017820007633417845
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,1,边的语音识别测试。,3.0,6.0,1.2255208999849856,0.0004162000259384513
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,2,现在我正在，我不懂。,6.0,9.0,1.2558685999829322,0.00023989996407181025
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,3,哇，请检查屏幕上。,9.0,12.0,1.1743997000157833,0.00019609997980296612
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,4,看的文字是否正确？,12.0,15.0,1.1308799999533221,0.000313800061121583
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,5,我们还要车辆系统着。,15.0,18.0,1.2513611000031233,0.00024670001585036516
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,6,响应时间。谢谢。,18.0,21.0,1.1239968000445515,0.00012400001287460327
+Chinese,2,segment_transcript,6535c494-bcf5-4aeb-9dba-303c6e7f588b,7,。,21.0,21.5893125,0.4477997999638319,0.5398639000486583
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,0,你好，欢迎参加亲子。,0.0,3.0,1.3655306999571621,0.00022839999292045832
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,1,边的语音识别测试。,3.0,6.0,1.3963723999913782,0.0003464999608695507
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,2,现在我正在，我不懂。,6.0,9.0,1.3348488999763504,0.0002164000179618597
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,3,哇，请检查屏幕上。,9.0,12.0,1.2121956999180838,0.0003597000613808632
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,4,看的文字是否正确？,12.0,15.0,1.3289249000372365,0.00018569990061223507
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,5,我们还要车辆系统着。,15.0,18.0,1.2612132000504062,0.00022259994875639677
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,6,响应时间。谢谢。,18.0,21.0,1.1689815999707207,0.00014539994299411774
+Chinese,3,segment_transcript,8497f915-cb88-461e-807f-346a4cf3bab6,7,。,21.0,21.5893125,0.43065090000163764,0.5711379999993369
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,0,halo ini adalah pengujian sistem,0.0,3.0,1.4358293999684975,0.0001482999650761485
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,1,nyaran suara saya berbicara,3.0,6.0,1.444638300104998,0.00014849996659904718
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,2,Benggan jelas salam bahasa Indonesia.,6.0,9.0,1.7159513999940827,0.00016980001237243414
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,3,Kami ingin mengetahui seberapa,9.0,12.0,1.4945678000804037,0.00017339992336928844
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,4,Pateks muncul di layar terima.,12.0,15.0,1.6912711000768468,0.00018149998504668474
+Indonesian,1,segment_transcript,8c420e0a-c79a-48c7-856e-95f7dc71df85,5,kasih sudah mendengarkan,15.0,17.831625,1.2387808000203222,0.00019070005510002375
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,0,halo ini adalah pengujian sistem,0.0,3.0,1.3733709000516683,0.0001631999621167779
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,1,nyaran suara saya berbicara,3.0,6.0,1.5297416999237612,0.00018610002007335424
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,2,Benggan jelas salam bahasa Indonesia.,6.0,9.0,1.7569141999119893,0.00027930003125220537
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,3,Kami ingin mengetahui seberapa,9.0,12.0,1.7061895999358967,0.0002626000205054879
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,4,Pateks muncul di layar terima.,12.0,15.0,2.346017500036396,0.0009009999921545386
+Indonesian,2,segment_transcript,3b625f58-5417-43cc-a9b7-0fdb264e0f53,5,kasih sudah mendengarkan,15.0,17.831625,1.642839299980551,0.0003381000133231282
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,0,halo ini adalah pengujian sistem,0.0,3.0,1.4320823999587446,0.00016289995983242989
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,1,nyaran suara saya berbicara,3.0,6.0,1.513107500039041,0.00023799994960427284
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,2,Benggan jelas salam bahasa Indonesia.,6.0,9.0,1.8026820999803022,0.0006033000536262989
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,3,Kami ingin mengetahui seberapa,9.0,12.0,1.7767776999389753,0.00018289999570697546
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,4,Pateks muncul di layar terima.,12.0,15.0,1.9470960000762716,0.00019509997218847275
+Indonesian,3,segment_transcript,4a295bf5-9671-4eb3-96a3-766b714c2c25,5,kasih sudah mendengarkan,15.0,17.831625,1.4292097000870854,0.00036419997923076153
