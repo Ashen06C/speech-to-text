@@ -1,0 +1,13 @@
+# Versions already installed in the existing .venv. No reinstall is needed.
+# Preserve the existing CPU PyTorch wheel; never substitute a CUDA wheel.
+fastapi==0.163.2
+uvicorn==0.54.0
+qwen-asr==0.0.6
+torch==2.15.0+cpu
+numpy==2.5.5
+soundfile==0.14.0
+psutil==7.2.2
+python-multipart==0.0.34
+huggingface-hub==0.36.2
+# FastAPI TestClient / optional HTTP smoke tests.
+httpx==0.28.1
