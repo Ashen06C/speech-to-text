@@ -6,3 +6,8 @@ env/
 .env
 .vscode/
 *.log
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/.env.local
+frontend/*.tsbuildinfo
