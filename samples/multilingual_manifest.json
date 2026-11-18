@@ -1,0 +1,26 @@
+{
+  "reference_verification": "Project owner confirmed on 2026-11-18 that these references match the recordings.",
+  "samples": [
+    {
+      "language": "English",
+      "ui_label": "English",
+      "audio": "samples/audios/english.wav",
+      "reference": "samples/references/english_reference.txt",
+      "reference_verified": true
+    },
+    {
+      "language": "Chinese",
+      "ui_label": "Mandarin Chinese",
+      "audio": "samples/audios/mandarin_chinese.wav",
+      "reference": "samples/references/mandarin_chinese_reference.txt",
+      "reference_verified": true
+    },
+    {
+      "language": "Indonesian",
+      "ui_label": "Bahasa Indonesia",
+      "audio": "samples/audios/bahasa_indonesia.wav",
+      "reference": "samples/references/bahasa_indonesia_reference.txt",
+      "reference_verified": true
+    }
+  ]
+}

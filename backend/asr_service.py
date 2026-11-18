@@ -33,6 +33,7 @@ class ASRService:
         self.settings = settings
         self._model = None
         self._lock = Lock()
+        self.model_load_time_seconds: float | None = None
 
     @property
     def model_loaded(self) -> bool:
@@ -61,7 +62,9 @@ class ASRService:
         with self._lock:
             if self._model is None:
                 logger.info("Loading cached %s on CPU", self.settings.model_name)
+                started = perf_counter()
                 self._model = self._create_model()
+                self.model_load_time_seconds = perf_counter() - started
                 logger.info("ASR model ready")
 
     def unload_model(self) -> None:

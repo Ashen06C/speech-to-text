@@ -16,7 +16,13 @@ from backend.audio_service import decode_wav_upload
 from backend.config import Language, Settings
 
 
-async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dict:
+async def stream_file(path: Path, language: str, chunk_ms: int, url: str, *,
+                      observation: dict | None = None, verbose: bool = True) -> dict:
+    """Optional observation retains events/timestamps even if a stream fails."""
+    def emit(*args, **kwargs):
+        if verbose:
+            print(*args, **kwargs)
+
     if not 1 <= chunk_ms <= 1000:
         raise ValueError("Chunk duration must be between 1 and 1000 ms.")
     # Reuse complete WAV validation, then read original raw frames below.
@@ -28,11 +34,13 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
     first_segment_arrival = None
     progressive_update = False
     sending_finished_at = None
-    events = []
-    print(f"Connecting to {url}...", flush=True)
+    events, arrivals, timing = [], [], {}
+    observation = observation if observation is not None else {}
+    observation.update(events=events, event_arrivals_seconds=arrivals, timing=timing)
+    emit(f"Connecting to {url}...", flush=True)
 
     async with connect(url, proxy=None, max_size=1024 * 1024, max_queue=8) as websocket:
-        print("Connected successfully.", flush=True)
+        emit("Connected successfully.", flush=True)
         await websocket.send(json.dumps({
             "type": "start", "language": language, "sample_rate": 16000,
             "channels": 1, "bit_depth": 16, "chunk_duration_ms": chunk_ms,
@@ -40,8 +48,10 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
         ready = json.loads(await asyncio.wait_for(websocket.recv(), 15))
         if ready.get("type") != "ready":
             raise RuntimeError(f"Server rejected start: {ready}")
-        print(f"Streaming started: {language}; stream_id={ready['stream_id']}", flush=True)
+        observation["ready"] = ready
+        emit(f"Streaming started: {language}; stream_id={ready['stream_id']}", flush=True)
         started_at = perf_counter()
+        timing["stream_started_at"] = started_at
 
         async def send_audio():
             nonlocal samples_sent, sending_finished_at
@@ -54,36 +64,47 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
                     target = started_at + (samples_sent + len(pcm) // 2) / 16000
                     await asyncio.sleep(max(0.0, target - perf_counter()))
                     await websocket.send(pcm)
+                    timing["last_audio_sent_at"] = perf_counter()
                     samples_sent += len(pcm) // 2
                     chunk_index += 1
-                    print(f"Sending audio chunk {chunk_index}: {samples_sent / 16000:.3f}s sent", flush=True)
+                    emit(f"Sending audio chunk {chunk_index}: {samples_sent / 16000:.3f}s sent", flush=True)
             sending_finished_at = perf_counter()
+            timing["end_sent_at"] = perf_counter()  # Immediately before initiating the end send.
             await websocket.send(json.dumps({"type": "end"}))
-            print("Audio transmission completed. Waiting for remaining inference...", flush=True)
+            emit("Audio transmission completed. Waiting for remaining inference...", flush=True)
 
         async def receive_events():
             nonlocal first_segment_arrival, progressive_update
             async for message in websocket:
+                received_at = perf_counter()
                 event = json.loads(message)
                 events.append(event)
+                arrivals.append(received_at - started_at)
                 kind = event.get("type")
                 if kind == "segment_transcript":
-                    if first_segment_arrival is None:
-                        first_segment_arrival = perf_counter()
-                    if samples_sent < total_samples:
-                        progressive_update = True
-                    print(f"\n[Transcript Segment {event['segment_index']}]\n{event['text']}", flush=True)
-                    print(f"Inference: {event['inference_time_seconds']:.3f}s; "
+                    if event["text"].strip():
+                        if first_segment_arrival is None:
+                            first_segment_arrival = received_at
+                            timing["first_transcript_at"] = received_at
+                        if samples_sent < total_samples:
+                            progressive_update = True
+                    emit(f"\n[Transcript Segment {event['segment_index']}]\n{event['text']}", flush=True)
+                    emit(f"Inference: {event['inference_time_seconds']:.3f}s; "
                           f"queue wait: {event['queue_wait_time_seconds']:.3f}s", flush=True)
                 elif kind == "final_transcript":
-                    print(f"\nFinal Transcript:\n{event['text']}", flush=True)
+                    timing["final_transcript_at"] = received_at
+                    if event["text"].strip() and first_segment_arrival is None:
+                        first_segment_arrival = received_at
+                        timing["first_transcript_at"] = received_at
+                    emit(f"\nFinal Transcript:\n{event['text']}", flush=True)
                 elif kind == "metrics":
-                    print("\nMetrics:\n" + json.dumps(event, indent=2, ensure_ascii=False), flush=True)
+                    emit("\nMetrics:\n" + json.dumps(event, indent=2, ensure_ascii=False), flush=True)
                 elif kind == "completed":
                     kinds = [item["type"] for item in events]
                     if "final_transcript" not in kinds or "metrics" not in kinds:
                         raise RuntimeError("Server completed without final transcript and metrics.")
-                    print("\nStreaming completed successfully.", flush=True)
+                    timing["completed_at"] = received_at
+                    emit("\nStreaming completed successfully.", flush=True)
                     return
                 elif kind in {"error", "cancelled"}:
                     raise RuntimeError(f"Session ended without completion: {event}")
@@ -103,7 +124,7 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
         except (asyncio.CancelledError, KeyboardInterrupt):
             try:
                 await websocket.send(json.dumps({"type": "stop"}))
-                print("Cancellation requested; closing the connection.", flush=True)
+                emit("Cancellation requested; closing the connection.", flush=True)
             except ConnectionClosed:
                 pass
             raise
@@ -113,13 +134,14 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
                     task.cancel()
             await asyncio.gather(sender, receiver, return_exceptions=True)
 
-    print(f"Transcript received before all audio was sent: {progressive_update}", flush=True)
+    emit(f"Transcript received before all audio was sent: {progressive_update}", flush=True)
     if first_segment_arrival is not None:
-        print(f"Client time to first transcript: {first_segment_arrival - started_at:.3f}s", flush=True)
+        emit(f"Client time to first transcript: {first_segment_arrival - started_at:.3f}s", flush=True)
         if not progressive_update and sending_finished_at is not None:
-            print(f"First transcript delay after sending audio: "
+            emit(f"First transcript delay after sending audio: "
                   f"{first_segment_arrival - sending_finished_at:.3f}s", flush=True)
-    return {"events": events, "progressive_update_before_upload_complete": progressive_update}
+    observation["progressive_update_before_upload_complete"] = progressive_update
+    return observation
 
 
 def main() -> int:

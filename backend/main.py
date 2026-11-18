@@ -1,7 +1,9 @@
 """FastAPI REST and progressive WebSocket endpoints. Use one Uvicorn worker."""
 
 import logging
+import os
 import platform
+import sys
 from contextlib import asynccontextmanager
 from typing import Annotated
 
@@ -73,6 +75,7 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
     def system():
         ram = psutil.virtual_memory().total
         process_ram = psutil.Process().memory_info().rss
+        torch = sys.modules.get("torch")
         return {
             "cpu_logical_processors": psutil.cpu_count(logical=True),
             "cpu_physical_cores": psutil.cpu_count(logical=False),
@@ -83,6 +86,15 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
             "process_ram_mb": round(process_ram / (1024**2), 2),
             "model": settings.model_name,
             "device": settings.device,
+            # Additive diagnostics; existing clients can keep using their fields.
+            "process_id": os.getpid(),
+            "available_ram_bytes": psutil.virtual_memory().available,
+            "operating_system": platform.platform(),
+            "configured_cpu_threads": settings.cpu_threads,
+            "torch_num_threads": torch.get_num_threads() if torch is not None else None,
+            "torch_version": str(torch.__version__) if torch is not None else None,
+            "window_ms": settings.window_ms,
+            "model_load_time_seconds": getattr(service, "model_load_time_seconds", None),
         }
 
     @app.post(

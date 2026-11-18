@@ -72,6 +72,10 @@ class APITests(unittest.TestCase):
         self.assertGreater(body["total_ram_bytes"], 0)
         self.assertGreater(body["process_ram_bytes"], 0)
         self.assertEqual(body["device"], "cpu")
+        self.assertGreater(body["process_id"], 0)
+        self.assertEqual(body["configured_cpu_threads"], self.settings.cpu_threads)
+        self.assertEqual(body["window_ms"], self.settings.window_ms)
+        self.assertGreaterEqual(body["model_load_time_seconds"], 0)
 
     def test_english_sample_and_model_reuse(self):
         payload = SAMPLE.read_bytes()
