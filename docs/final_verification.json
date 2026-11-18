@@ -1,0 +1,350 @@
+{
+  "verified_at": "2026-11-18T20:46:06.355885+00:00",
+  "scope": "final checks; historical benchmarks remain unchanged",
+  "checks": [
+    {
+      "test": "Backend module imports",
+      "result": "PASS",
+      "details": [
+        "backend.main",
+        "backend.asr_service",
+        "backend.streaming_service",
+        "backend.audio_buffer",
+        "backend.audio_service",
+        "backend.validate_samples",
+        "backend.validate_multilingual",
+        "backend.benchmarks.benchmark",
+        "backend.benchmarks.load_test",
+        "backend.benchmarks.capacity_estimator"
+      ]
+    },
+    {
+      "test": "http://127.0.0.1:8000/health",
+      "result": "PASS",
+      "details": {
+        "status": "healthy",
+        "model": "Qwen3-ASR-0.6B",
+        "device": "cpu",
+        "model_loaded": true
+      }
+    },
+    {
+      "test": "http://127.0.0.1:8000/api/system",
+      "result": "PASS",
+      "details": {
+        "cpu_logical_processors": 12,
+        "cpu_physical_cores": 8,
+        "total_ram_bytes": 16824262656,
+        "total_ram_gb": 15.67,
+        "python_version": "3.12.10",
+        "process_ram_bytes": 3325194240,
+        "process_ram_mb": 3171.15,
+        "model": "Qwen3-ASR-0.6B",
+        "device": "cpu",
+        "process_id": 16036,
+        "available_ram_bytes": 4161933312,
+        "operating_system": "Windows-11-10.0.26200-SP0",
+        "configured_cpu_threads": 6,
+        "torch_num_threads": 6,
+        "torch_version": "2.15.0+cpu",
+        "window_ms": 3000,
+        "model_load_time_seconds": 35.938451199999975
+      }
+    },
+    {
+      "test": "http://127.0.0.1:5173/backend/health",
+      "result": "PASS",
+      "details": {
+        "status": "healthy",
+        "model": "Qwen3-ASR-0.6B",
+        "device": "cpu",
+        "model_loaded": true
+      }
+    },
+    {
+      "test": "http://127.0.0.1:5173/backend/api/system",
+      "result": "PASS",
+      "details": {
+        "cpu_logical_processors": 12,
+        "cpu_physical_cores": 8,
+        "total_ram_bytes": 16824262656,
+        "total_ram_gb": 15.67,
+        "python_version": "3.12.10",
+        "process_ram_bytes": 3325210624,
+        "process_ram_mb": 3171.17,
+        "model": "Qwen3-ASR-0.6B",
+        "device": "cpu",
+        "process_id": 16036,
+        "available_ram_bytes": 4161798144,
+        "operating_system": "Windows-11-10.0.26200-SP0",
+        "configured_cpu_threads": 6,
+        "torch_num_threads": 6,
+        "torch_version": "2.15.0+cpu",
+        "window_ms": 3000,
+        "model_load_time_seconds": 35.938451199999975
+      }
+    },
+    {
+      "test": "Vite frontend HTTP start",
+      "result": "PASS",
+      "details": {
+        "url": "http://127.0.0.1:5173/",
+        "status": 200,
+        "entrypoint": "/src/main.tsx"
+      }
+    },
+    {
+      "test": "GET /docs",
+      "result": "PASS",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "test": "GET /openapi.json",
+      "result": "PASS",
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "test": "Live REST inference",
+      "result": "PASS",
+      "details": {
+        "success": true,
+        "language": "English",
+        "transcript": "Hello. This is a test of the speech recognition system. I am speaking clearly so we can measure how quickly the words appear on the screen. Thank you for listening.",
+        "audio_duration_seconds": 12.1531875,
+        "inference_time_seconds": 5.024414799999704,
+        "device": "cpu"
+      }
+    },
+    {
+      "test": "Live REST invalid WAV",
+      "result": "PASS",
+      "details": {
+        "status": 400,
+        "response": {
+          "detail": "Invalid or unreadable WAV file."
+        }
+      }
+    },
+    {
+      "test": "Live REST unsupported language",
+      "result": "PASS",
+      "details": {
+        "status": 422
+      }
+    },
+    {
+      "test": "Three samples and verified-reference manifest",
+      "result": "PASS",
+      "details": [
+        {
+          "language": "English",
+          "audio": "samples/audios/english.wav",
+          "duration_seconds": 12.1531875,
+          "audio_sha256": "277b9f5c85738ec698d0974c0e3faaf206519a144c552b500ebc26d8411f8bc5",
+          "reference_sha256": "401a0c9e75db78eaed1838f2d50f25a1a8c1ba7862352a1a02d75547b092e971"
+        },
+        {
+          "language": "Chinese",
+          "audio": "samples/audios/mandarin_chinese.wav",
+          "duration_seconds": 21.5893125,
+          "audio_sha256": "4db6a2ead54a60e028de5b8b10b56d94738b11b389f66edb735798bad6915884",
+          "reference_sha256": "b2c6bebe0fca866cd18ea28fefe2150d140ab905966e13b60ef37f559f677891"
+        },
+        {
+          "language": "Indonesian",
+          "audio": "samples/audios/bahasa_indonesia.wav",
+          "duration_seconds": 17.831625,
+          "audio_sha256": "30ac19f835c5ee3f8869b386e7334a974c34ad5dc1457064341a6e877a7ccd24",
+          "reference_sha256": "654fa6cfdb043c84c617ce5c22b502d619342532a6f220552a8fa7209661328f"
+        }
+      ]
+    },
+    {
+      "test": "Historical multilingual results: parse, RTF and WER/CER recomputation",
+      "result": "PASS",
+      "details": {
+        "completed_runs": 9,
+        "json_sha256": "9557701409680a11f789bc59574d9b24342e238fb257630cf0fe68f7d7a3e186"
+      }
+    },
+    {
+      "test": "Concurrency provenance and capacity recalculation",
+      "result": "PASS",
+      "details": {
+        "calls": 9,
+        "effective_calls_per_server": 1,
+        "rows": [
+          {
+            "call_legs": 50,
+            "estimated_vcpu": 600,
+            "estimated_ram_gib": 800.0,
+            "estimated_servers": 50,
+            "status": "ESTIMATED — CONDITIONAL",
+            "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+          },
+          {
+            "call_legs": 100,
+            "estimated_vcpu": 1200,
+            "estimated_ram_gib": 1600.0,
+            "estimated_servers": 100,
+            "status": "ESTIMATED — CONDITIONAL",
+            "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+          },
+          {
+            "call_legs": 200,
+            "estimated_vcpu": 2400,
+            "estimated_ram_gib": 3200.0,
+            "estimated_servers": 200,
+            "status": "ESTIMATED — CONDITIONAL",
+            "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+          },
+          {
+            "call_legs": 500,
+            "estimated_vcpu": 6000,
+            "estimated_ram_gib": 8000.0,
+            "estimated_servers": 500,
+            "status": "ESTIMATED — CONDITIONAL",
+            "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+          },
+          {
+            "call_legs": 1000,
+            "estimated_vcpu": 12000,
+            "estimated_ram_gib": 16000.0,
+            "estimated_servers": 1000,
+            "status": "ESTIMATED — CONDITIONAL",
+            "reason": "1 effective whole calls/server; explicit capacity factor 1.0; 25% headroom applied once to inference_time; 1 model replicas/server. Uncalibrated server hypothesis."
+          }
+        ]
+      }
+    },
+    {
+      "test": "Final live multilingual WebSockets via Vite proxy",
+      "result": "PASS",
+      "details": {
+        "observations": "docs/final_multilingual_verification.json",
+        "streams": 3,
+        "progressive_streams": 3,
+        "segments": 19
+      }
+    },
+    {
+      "test": "Final live reference equality",
+      "result": "FAIL",
+      "details": {
+        "validator_exit_code": 1,
+        "reason": "Recognized words differ from all three verified references; streaming_result=PASS",
+        "languages": [
+          "English",
+          "Chinese",
+          "Indonesian"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "os": "Windows-11-10.0.26200-SP0",
+    "physical_cores": 8,
+    "logical_processors": 12,
+    "system_ram_bytes": 16824262656,
+    "versions": {
+      "torch": "2.15.0+cpu",
+      "qwen-asr": "0.0.6",
+      "fastapi": "0.163.2",
+      "uvicorn": "0.54.0",
+      "numpy": "2.5.5",
+      "soundfile": "0.14.0",
+      "psutil": "7.2.2",
+      "websockets": "17.4",
+      "jiwer": "4.0.0",
+      "transformers": "4.57.6"
+    }
+  },
+  "preserved_files": {
+    "test_asr.py": "c64f0a5d1312555757ceeae82adf508a3a78877147fce9d5dc0e18687e0c95f3",
+    "samples/english.wav": "f5ac615d92e225e9349976f107757f941db1ca9f8dcd41c8498942f851a809c2"
+  },
+  "memory_after_checks": {
+    "percent": 75.7,
+    "available_bytes": 4084412416
+  },
+  "executed_command_results": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m unittest discover -s backend/tests -t . -v",
+      "cwd": "project root",
+      "exit_code": 0,
+      "discovered": 113,
+      "passed": 112,
+      "skipped": 1,
+      "elapsed_seconds": 9.639
+    },
+    {
+      "command": "npm.cmd test -- --reporter=verbose",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "files_passed": 4,
+      "tests_passed": 41,
+      "elapsed_seconds": 22.65
+    },
+    {
+      "command": "npm.cmd run build",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "includes": [
+        "tsc --noEmit",
+        "vite build"
+      ]
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pip check",
+      "cwd": "project root",
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m backend.validate_samples --require-all --json",
+      "exit_code": 0,
+      "valid_samples": 3
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m backend.validate_multilingual --url ws://127.0.0.1:5173/ws/transcribe --api-base-url http://127.0.0.1:5173/backend --output docs/final_multilingual_verification.json",
+      "exit_code": 1,
+      "streaming_passed": 3,
+      "reference_equality_failed": 3
+    },
+    {
+      "command": "npm test -- --reporter=verbose",
+      "cwd": "frontend",
+      "exit_code": 1,
+      "reason": "PowerShell npm.ps1 execution-policy restriction; npm.cmd succeeded"
+    },
+    {
+      "command": "argparse --help for six documented Python CLIs",
+      "exit_code": 0
+    }
+  ],
+  "browser_verification": {
+    "result": "NOT RUN",
+    "reason": "Computer Use native pipe is unavailable: failed to connect native pipe: The system cannot find the file specified. (os error 2)",
+    "attempted_surfaces": [
+      "@oai/sky",
+      "cua.getState"
+    ]
+  },
+  "repository_checks": {
+    "local_markdown_links_checked": 58,
+    "broken_links": [],
+    "evidence_removed": false,
+    "fresh_install": "NOT RUN",
+    "personal_video": "PENDING"
+  },
+  "retained_evidence_sha256": {
+    "benchmark_results/benchmark_results.json": "9557701409680a11f789bc59574d9b24342e238fb257630cf0fe68f7d7a3e186",
+    "benchmark_results/concurrency_results.json": "20884eb5f6cad5b0f8257a54d546dba89aa3b75a49bf315d3dbec393c26211cd",
+    "benchmark_results/capacity_estimates.json": "e4e68c0e5689b458da04054f299324649155aafda4ff8be908ae7450537918a3"
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "recorded_at": "2026-11-19T02:12:03.489226+05:30",
+  "backend_url": "ws://127.0.0.1:5173/ws/transcribe",
+  "api_base_url": "http://127.0.0.1:5173/backend",
+  "backend_health": {
+    "status": "healthy",
+    "model": "Qwen3-ASR-0.6B",
+    "device": "cpu",
+    "model_loaded": true
+  },
+  "manifest": "D:\\speech-to-text\\samples\\multilingual_manifest.json",
+  "chunk_duration_ms": 500,
+  "result_scope": "Overall FAIL for streaming errors or verified-reference word differences; streaming_result is separate. No accuracy scores.",
+  "results": [
+    {
+      "language": "English",
+      "ui_label": "English",
+      "audio": "samples/audios/english.wav",
+      "reference": "samples/references/english_reference.txt",
+      "reference_verified": true,
+      "format_status": "PASS",
+      "duration_seconds": 12.1531875,
+      "reference_available": true,
+      "reference_text": "Hello, this is a test of the speech recognition system. I am speaking clearly so we can measure how quickly the words appear on the screen. Thank you for listening.",
+      "reference_status": "VERIFIED BY USER",
+      "errors": [],
+      "reference_sha256": "401a0c9e75db78eaed1838f2d50f25a1a8c1ba7862352a1a02d75547b092e971",
+      "sample_rate": 16000,
+      "channels": 1,
+      "subtype": "PCM_16",
+      "container": "WAV",
+      "audio_sha256": "277b9f5c85738ec698d0974c0e3faaf206519a144c552b500ebc26d8411f8bc5",
+      "result": "FAIL",
+      "streaming_status": "completed",
+      "actual_transcript": "Hello. This is my test on the speech recognition. I am speaking clearly. So. We can measure how quickly the words appear on the screen. Green. Thank you for listening. I'm sorry.",
+      "reference_comparison": "DIFFERENCES FOUND",
+      "streaming_result": "PASS",
+      "reference_result": "FAIL",
+      "segments": [
+        {
+          "type": "segment_transcript",
+          "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+          "segment_index": 0,
+          "language": "English",
+          "text": "Hello. This is my test on the speech recognition.",
+          "audio_start_seconds": 0.0,
+          "audio_end_seconds": 3.0,
+          "inference_time_seconds": 1.5336875000002692,
+          "queue_wait_time_seconds": 0.000419899999997142
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+          "segment_index": 1,
+          "language": "English",
+          "text": "I am speaking clearly. So.",
+          "audio_start_seconds": 3.0,
+          "audio_end_seconds": 6.0,
+          "inference_time_seconds": 0.9707711000000927,
+          "queue_wait_time_seconds": 0.00044879999995828257
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+          "segment_index": 2,
+          "language": "English",
+          "text": "We can measure how quickly the words appear on the screen.",
+          "audio_start_seconds": 6.0,
+          "audio_end_seconds": 9.0,
+          "inference_time_seconds": 1.3093158000001495,
+          "queue_wait_time_seconds": 0.0002693000001272594
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+          "segment_index": 3,
+          "language": "English",
+          "text": "Green. Thank you for listening.",
+          "audio_start_seconds": 9.0,
+          "audio_end_seconds": 12.0,
+          "inference_time_seconds": 0.9962445000001026,
+          "queue_wait_time_seconds": 0.00023879999980636057
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+          "segment_index": 4,
+          "language": "English",
+          "text": "I'm sorry.",
+          "audio_start_seconds": 12.0,
+          "audio_end_seconds": 12.1531875,
+          "inference_time_seconds": 0.4613875000000007,
+          "queue_wait_time_seconds": 0.8473730000000614
+        }
+      ],
+      "segment_count": 5,
+      "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+      "metrics": {
+        "type": "metrics",
+        "stream_id": "f77a2fb2-d3a4-4b69-a2de-2610e727abc7",
+        "time_to_first_transcript_seconds": 4.54856269999982,
+        "last_audio_to_final_seconds": 1.3093026000001373,
+        "stream_duration_seconds": 13.469923300000119,
+        "total_audio_duration_seconds": 12.1531875,
+        "total_inference_time_seconds": 5.271406400000615,
+        "total_queue_wait_time_seconds": 0.8487497999999505,
+        "windows": [
+          {
+            "segment_index": 0,
+            "inference_time_seconds": 1.5336875000002692,
+            "queue_wait_time_seconds": 0.000419899999997142
+          },
+          {
+            "segment_index": 1,
+            "inference_time_seconds": 0.9707711000000927,
+            "queue_wait_time_seconds": 0.00044879999995828257
+          },
+          {
+            "segment_index": 2,
+            "inference_time_seconds": 1.3093158000001495,
+            "queue_wait_time_seconds": 0.0002693000001272594
+          },
+          {
+            "segment_index": 3,
+            "inference_time_seconds": 0.9962445000001026,
+            "queue_wait_time_seconds": 0.00023879999980636057
+          },
+          {
+            "segment_index": 4,
+            "inference_time_seconds": 0.4613875000000007,
+            "queue_wait_time_seconds": 0.8473730000000614
+          }
+        ]
+      },
+      "ordering": "PASS",
+      "final_assembly": "PASS",
+      "reference_note": "Manual review required; reference and observed text differ. No accuracy score calculated.",
+      "progressive_update_before_upload_complete": true
+    },
+    {
+      "language": "Chinese",
+      "ui_label": "Mandarin Chinese",
+      "audio": "samples/audios/mandarin_chinese.wav",
+      "reference": "samples/references/mandarin_chinese_reference.txt",
+      "reference_verified": true,
+      "format_status": "PASS",
+      "duration_seconds": 21.5893125,
+      "reference_available": true,
+      "reference_text": "你好，欢迎参加今天的语音识别测试。现在我正在说普通话。请检查屏幕上的文字是否正确。我们还要测量系统的响应时间。谢谢。",
+      "reference_status": "VERIFIED BY USER",
+      "errors": [],
+      "reference_sha256": "b2c6bebe0fca866cd18ea28fefe2150d140ab905966e13b60ef37f559f677891",
+      "sample_rate": 16000,
+      "channels": 1,
+      "subtype": "PCM_16",
+      "container": "WAV",
+      "audio_sha256": "4db6a2ead54a60e028de5b8b10b56d94738b11b389f66edb735798bad6915884",
+      "result": "FAIL",
+      "streaming_status": "completed",
+      "actual_transcript": "你好，欢迎参加亲子。边的语音识别测试。现在我正在，我不懂。哇，请检查屏幕上。看的文字是否正确？我们还要车辆系统着。响应时间。谢谢。。",
+      "reference_comparison": "DIFFERENCES FOUND",
+      "streaming_result": "PASS",
+      "reference_result": "FAIL",
+      "segments": [
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 0,
+          "language": "Chinese",
+          "text": "你好，欢迎参加亲子。",
+          "audio_start_seconds": 0.0,
+          "audio_end_seconds": 3.0,
+          "inference_time_seconds": 0.9095832999996674,
+          "queue_wait_time_seconds": 0.00012440000000424334
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 1,
+          "language": "Chinese",
+          "text": "边的语音识别测试。",
+          "audio_start_seconds": 3.0,
+          "audio_end_seconds": 6.0,
+          "inference_time_seconds": 0.917482000000291,
+          "queue_wait_time_seconds": 0.0004638999998860527
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 2,
+          "language": "Chinese",
+          "text": "现在我正在，我不懂。",
+          "audio_start_seconds": 6.0,
+          "audio_end_seconds": 9.0,
+          "inference_time_seconds": 0.9962299999997413,
+          "queue_wait_time_seconds": 0.00022800000033385004
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 3,
+          "language": "Chinese",
+          "text": "哇，请检查屏幕上。",
+          "audio_start_seconds": 9.0,
+          "audio_end_seconds": 12.0,
+          "inference_time_seconds": 0.9105961000000207,
+          "queue_wait_time_seconds": 0.0002635000000736909
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 4,
+          "language": "Chinese",
+          "text": "看的文字是否正确？",
+          "audio_start_seconds": 12.0,
+          "audio_end_seconds": 15.0,
+          "inference_time_seconds": 0.8592595999998593,
+          "queue_wait_time_seconds": 0.0004340000000411237
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 5,
+          "language": "Chinese",
+          "text": "我们还要车辆系统着。",
+          "audio_start_seconds": 15.0,
+          "audio_end_seconds": 18.0,
+          "inference_time_seconds": 0.9294826999998804,
+          "queue_wait_time_seconds": 0.0004708999999820662
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 6,
+          "language": "Chinese",
+          "text": "响应时间。谢谢。",
+          "audio_start_seconds": 18.0,
+          "audio_end_seconds": 21.0,
+          "inference_time_seconds": 0.8205625000000509,
+          "queue_wait_time_seconds": 0.00044799999977840343
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+          "segment_index": 7,
+          "language": "Chinese",
+          "text": "。",
+          "audio_start_seconds": 21.0,
+          "audio_end_seconds": 21.5893125,
+          "inference_time_seconds": 0.33649819999982356,
+          "queue_wait_time_seconds": 0.2250767000000451
+        }
+      ],
+      "segment_count": 8,
+      "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+      "metrics": {
+        "type": "metrics",
+        "stream_id": "29cc7987-f7e4-473e-99d4-4e369c258757",
+        "time_to_first_transcript_seconds": 3.93156480000016,
+        "last_audio_to_final_seconds": 0.5622615000002043,
+        "stream_duration_seconds": 22.161120100000062,
+        "total_audio_duration_seconds": 21.5893125,
+        "total_inference_time_seconds": 6.679694399999335,
+        "total_queue_wait_time_seconds": 0.22750940000014452,
+        "windows": [
+          {
+            "segment_index": 0,
+            "inference_time_seconds": 0.9095832999996674,
+            "queue_wait_time_seconds": 0.00012440000000424334
+          },
+          {
+            "segment_index": 1,
+            "inference_time_seconds": 0.917482000000291,
+            "queue_wait_time_seconds": 0.0004638999998860527
+          },
+          {
+            "segment_index": 2,
+            "inference_time_seconds": 0.9962299999997413,
+            "queue_wait_time_seconds": 0.00022800000033385004
+          },
+          {
+            "segment_index": 3,
+            "inference_time_seconds": 0.9105961000000207,
+            "queue_wait_time_seconds": 0.0002635000000736909
+          },
+          {
+            "segment_index": 4,
+            "inference_time_seconds": 0.8592595999998593,
+            "queue_wait_time_seconds": 0.0004340000000411237
+          },
+          {
+            "segment_index": 5,
+            "inference_time_seconds": 0.9294826999998804,
+            "queue_wait_time_seconds": 0.0004708999999820662
+          },
+          {
+            "segment_index": 6,
+            "inference_time_seconds": 0.8205625000000509,
+            "queue_wait_time_seconds": 0.00044799999977840343
+          },
+          {
+            "segment_index": 7,
+            "inference_time_seconds": 0.33649819999982356,
+            "queue_wait_time_seconds": 0.2250767000000451
+          }
+        ]
+      },
+      "ordering": "PASS",
+      "final_assembly": "PASS",
+      "reference_note": "Manual review required; reference and observed text differ. No accuracy score calculated.",
+      "progressive_update_before_upload_complete": true
+    },
+    {
+      "language": "Indonesian",
+      "ui_label": "Bahasa Indonesia",
+      "audio": "samples/audios/bahasa_indonesia.wav",
+      "reference": "samples/references/bahasa_indonesia_reference.txt",
+      "reference_verified": true,
+      "format_status": "PASS",
+      "duration_seconds": 17.831625,
+      "reference_available": true,
+      "reference_text": "Halo, ini adalah pengujian sistem pengenalan suara. Saya berbicara dengan jelas dalam bahasa Indonesia. Kami ingin mengetahui seberapa cepat teks muncul di layar. Terima kasih sudah mendengarkan.",
+      "reference_status": "VERIFIED BY USER",
+      "errors": [],
+      "reference_sha256": "654fa6cfdb043c84c617ce5c22b502d619342532a6f220552a8fa7209661328f",
+      "sample_rate": 16000,
+      "channels": 1,
+      "subtype": "PCM_16",
+      "container": "WAV",
+      "audio_sha256": "30ac19f835c5ee3f8869b386e7334a974c34ad5dc1457064341a6e877a7ccd24",
+      "result": "FAIL",
+      "streaming_status": "completed",
+      "actual_transcript": "halo ini adalah pengujian sistem nyaran suara saya berbicara Benggan jelas salam bahasa Indonesia. Kami ingin mengetahui seberapa Pateks muncul di layar terima. kasih sudah mendengarkan",
+      "reference_comparison": "DIFFERENCES FOUND",
+      "streaming_result": "PASS",
+      "reference_result": "FAIL",
+      "segments": [
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 0,
+          "language": "Indonesian",
+          "text": "halo ini adalah pengujian sistem",
+          "audio_start_seconds": 0.0,
+          "audio_end_seconds": 3.0,
+          "inference_time_seconds": 1.0670938999996906,
+          "queue_wait_time_seconds": 0.00017600000001039007
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 1,
+          "language": "Indonesian",
+          "text": "nyaran suara saya berbicara",
+          "audio_start_seconds": 3.0,
+          "audio_end_seconds": 6.0,
+          "inference_time_seconds": 1.0496530999998868,
+          "queue_wait_time_seconds": 0.00028029999975842657
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 2,
+          "language": "Indonesian",
+          "text": "Benggan jelas salam bahasa Indonesia.",
+          "audio_start_seconds": 6.0,
+          "audio_end_seconds": 9.0,
+          "inference_time_seconds": 1.2257851000003939,
+          "queue_wait_time_seconds": 0.00035439999965092284
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 3,
+          "language": "Indonesian",
+          "text": "Kami ingin mengetahui seberapa",
+          "audio_start_seconds": 9.0,
+          "audio_end_seconds": 12.0,
+          "inference_time_seconds": 1.1131778000003578,
+          "queue_wait_time_seconds": 0.00041079999982684967
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 4,
+          "language": "Indonesian",
+          "text": "Pateks muncul di layar terima.",
+          "audio_start_seconds": 12.0,
+          "audio_end_seconds": 15.0,
+          "inference_time_seconds": 1.2967364999999518,
+          "queue_wait_time_seconds": 0.00034040000036839047
+        },
+        {
+          "type": "segment_transcript",
+          "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+          "segment_index": 5,
+          "language": "Indonesian",
+          "text": "kasih sudah mendengarkan",
+          "audio_start_seconds": 15.0,
+          "audio_end_seconds": 17.831625,
+          "inference_time_seconds": 0.924377800000002,
+          "queue_wait_time_seconds": 0.00037699999984397436
+        }
+      ],
+      "segment_count": 6,
+      "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+      "metrics": {
+        "type": "metrics",
+        "stream_id": "d5e368b7-3581-4203-ae2e-c260fbfcdf8e",
+        "time_to_first_transcript_seconds": 4.085862500000076,
+        "last_audio_to_final_seconds": 0.927379899999778,
+        "stream_duration_seconds": 18.77602429999979,
+        "total_audio_duration_seconds": 17.831625,
+        "total_inference_time_seconds": 6.676824200000283,
+        "total_queue_wait_time_seconds": 0.001938899999458954,
+        "windows": [
+          {
+            "segment_index": 0,
+            "inference_time_seconds": 1.0670938999996906,
+            "queue_wait_time_seconds": 0.00017600000001039007
+          },
+          {
+            "segment_index": 1,
+            "inference_time_seconds": 1.0496530999998868,
+            "queue_wait_time_seconds": 0.00028029999975842657
+          },
+          {
+            "segment_index": 2,
+            "inference_time_seconds": 1.2257851000003939,
+            "queue_wait_time_seconds": 0.00035439999965092284
+          },
+          {
+            "segment_index": 3,
+            "inference_time_seconds": 1.1131778000003578,
+            "queue_wait_time_seconds": 0.00041079999982684967
+          },
+          {
+            "segment_index": 4,
+            "inference_time_seconds": 1.2967364999999518,
+            "queue_wait_time_seconds": 0.00034040000036839047
+          },
+          {
+            "segment_index": 5,
+            "inference_time_seconds": 0.924377800000002,
+            "queue_wait_time_seconds": 0.00037699999984397436
+          }
+        ]
+      },
+      "ordering": "PASS",
+      "final_assembly": "PASS",
+      "reference_note": "Manual review required; reference and observed text differ. No accuracy score calculated.",
+      "progressive_update_before_upload_complete": true
+    }
+  ]
+}

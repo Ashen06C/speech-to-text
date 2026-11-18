@@ -54,9 +54,9 @@ Recognition errors remain. Successful streaming means the measurement completed,
 - English's first-text times were 8.871, 4.631, and 4.605 seconds. The slower first run is included; its cause was not isolated.
 - Backend RSS peaked at 3,102.496 MiB. Available system RAM fell to about **0.086 GiB**, indicating memory pressure. Background applications, temperature, and power mode were not controlled.
 - Independent three-second windows can cut words and lose context. Extra English text and repeated Chinese punctuation were observed.
-- Historical model loading time and live torch thread count were **NOT MEASURED** because the running server predates those diagnostics. They can be recorded on a future normal server start.
+- Historical model loading time and live torch thread count were **NOT MEASURED** in these Step 6 runs because that server predates those diagnostics. A later Step 7 backend start recorded 35.938 seconds of cached loading and six live threads; see [concurrency results](concurrency_results.md). Those later values are not retroactive Step 6 measurements.
 - These results cover three short recordings on one CPU laptop. They do not establish general language rankings, long-term memory stability, or a proven CPU bottleneck.
-- No real-model concurrency, capacity, or sizing test was performed. Browser interaction itself was not benchmarked.
+- Step 6 measured single streams only. Subsequent [real-model concurrency tests](concurrency_results.md) and [conditional sizing estimates](capacity_estimation.md) are recorded separately. Browser interaction itself was not benchmarked.
 
 ## Checks executed
 

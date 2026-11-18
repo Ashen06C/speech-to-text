@@ -11,3 +11,22 @@ frontend/dist/
 frontend/coverage/
 frontend/.env.local
 frontend/*.tsbuildinfo
+
+# Local environment variants; keep the configuration example in source control.
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+*.tmp
+*.temp
+
+# Downloaded model/cache artifacts belong outside the submitted source tree.
+.cache/
+models/
+*.safetensors
+*.gguf
+*.onnx
+*.pt
+*.pth
+pytorch_model*.bin
+ggml-*.bin
