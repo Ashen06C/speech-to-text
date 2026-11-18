@@ -1,7 +1,7 @@
 r"""Run from the project root:
 
-    .\.venv\Scripts\python.exe -m backend.test_api
-    .\.venv\Scripts\python.exe -m backend.test_api --real
+    .\.venv\Scripts\python.exe -m backend.tests.test_api
+    .\.venv\Scripts\python.exe -m backend.tests.test_api --real
 
 Default tests mock only the model, exercising the actual service and REST API.
 --real loads the cached Qwen model once and runs a small integration smoke test.
@@ -24,7 +24,7 @@ from backend.asr_service import ASRService
 from backend.config import Settings
 from backend.main import create_app
 
-SAMPLE = Path(__file__).resolve().parents[1] / "samples" / "english.wav"
+SAMPLE = Path(__file__).resolve().parents[2] / "samples" / "english.wav"
 
 
 def make_wav(*, rate=16_000, channels=1, subtype="PCM_16", frames=1600) -> bytes:
@@ -189,7 +189,7 @@ class APITests(unittest.TestCase):
                     self.assertEqual(post_audio(client, make_wav()).status_code, 503)
 
 
-@unittest.skipUnless("--real" in sys.argv, "Real model check is opt-in: python -m backend.test_api --real")
+@unittest.skipUnless("--real" in sys.argv, "Real model check is opt-in: python -m backend.tests.test_api --real")
 class RealModelSmokeTest(unittest.TestCase):
     def test_real_backend(self):
         with TestClient(create_app()) as client:

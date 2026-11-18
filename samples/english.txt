@@ -1,0 +1,1 @@
+Hello everyone. Welcome to the speech recognition demonstration. Today we are testing real-time multilingual speech to text using a computer processor.

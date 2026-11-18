@@ -15,7 +15,7 @@ from backend.asr_service import ASRService, InferenceError, Transcription
 from backend.audio_buffer import AudioBuffer, PCMError
 from backend.config import Language, Settings
 from backend.main import create_app
-from backend.test_api import make_wav
+from backend.tests.test_api import make_wav
 
 CHUNK = bytes(16000)
 START = {"type": "start", "language": "English", "sample_rate": 16000,

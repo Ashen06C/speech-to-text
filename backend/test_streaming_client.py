@@ -19,7 +19,7 @@ from backend.config import Language, Settings
 async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dict:
     if not 1 <= chunk_ms <= 1000:
         raise ValueError("Chunk duration must be between 1 and 1000 ms.")
-    # Reuse Step 2's complete WAV validation, then read original raw frames below.
+    # Reuse complete WAV validation, then read original raw frames below.
     with path.open("rb") as source:
         audio = decode_wav_upload(UploadFile(source, size=path.stat().st_size), Settings())
         total_samples = audio.samples.size
@@ -123,6 +123,9 @@ async def stream_file(path: Path, language: str, chunk_ms: int, url: str) -> dic
 
 
 def main() -> int:
+    # Windows redirected stdout can default to cp1252, which cannot print Chinese.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description="Send WAV audio progressively as paced raw PCM chunks.")
     parser.add_argument("--file", type=Path,
                         default=Path(__file__).resolve().parents[1] / "samples" / "english.wav")
