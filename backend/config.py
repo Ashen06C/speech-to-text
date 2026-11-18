@@ -29,3 +29,15 @@ class Settings:
         default_factory=lambda: positive_env_int("ASR_MAX_UPLOAD_MB", 10) * 1024 * 1024
     )
     max_new_tokens: int = 256
+    window_ms: int = field(default_factory=lambda: positive_env_int("ASR_WINDOW_MS", 3000))
+    pending_windows: int = field(default_factory=lambda: positive_env_int("ASR_PENDING_WINDOWS", 4))
+    max_streams: int = field(default_factory=lambda: positive_env_int("ASR_MAX_STREAMS", 2))
+    max_stream_seconds: int = field(default_factory=lambda: positive_env_int("ASR_MAX_STREAM_SECONDS", 600))
+    stream_idle_seconds: int = 30
+    stream_send_timeout_seconds: int = 10
+
+    def __post_init__(self):
+        if not 1000 <= self.window_ms <= 30_000:
+            raise ValueError("ASR_WINDOW_MS must be between 1000 and 30000.")
+        if min(self.pending_windows, self.max_streams, self.max_stream_seconds) <= 0:
+            raise ValueError("Streaming queue, session, and duration limits must be positive.")

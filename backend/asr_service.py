@@ -24,6 +24,8 @@ class InferenceError(RuntimeError):
 class Transcription:
     text: str
     inference_time_seconds: float
+    # Internal monotonic timestamp lets streaming measure queue + model-lock wait.
+    inference_started_at: float | None = None
 
 
 class ASRService:
@@ -89,7 +91,7 @@ class ASRService:
                 elapsed = perf_counter() - started
                 if not results or not isinstance(results[0].text, str):
                     raise RuntimeError("Model returned no valid transcription result.")
-                return Transcription(results[0].text, elapsed)
+                return Transcription(results[0].text, elapsed, started)
             except Exception as exc:
                 logger.exception("Qwen3-ASR inference failed")
                 raise InferenceError("Transcription failed. Check the server log for details.") from exc

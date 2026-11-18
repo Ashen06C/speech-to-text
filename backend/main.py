@@ -1,4 +1,4 @@
-"""FastAPI REST endpoints. Start with one Uvicorn worker from the project root."""
+"""FastAPI REST and progressive WebSocket endpoints. Use one Uvicorn worker."""
 
 import logging
 import platform
@@ -6,13 +6,14 @@ from contextlib import asynccontextmanager
 from typing import Annotated
 
 import psutil
-from fastapi import FastAPI, File, Form, HTTPException, Response, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Response, UploadFile, WebSocket
 from pydantic import BaseModel
 from starlette.concurrency import run_in_threadpool
 
 from backend.asr_service import ASRService, InferenceError, ModelNotLoadedError
 from backend.audio_service import AudioValidationError, decode_wav_upload
 from backend.config import Language, Settings
+from backend.streaming_service import StreamingService
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +30,7 @@ class TranscribeResponse(BaseModel):
 def create_app(settings: Settings | None = None, service: ASRService | None = None) -> FastAPI:
     settings = settings if settings is not None else Settings()
     service = service if service is not None else ASRService(settings)
+    streaming = StreamingService(service, settings)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -40,15 +42,21 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
         try:
             yield
         finally:
+            await streaming.shutdown()
             await run_in_threadpool(service.unload_model)
 
     app = FastAPI(
         title="Speech-to-Text API",
-        description="WAV file transcription using Qwen3-ASR on CPU.",
-        version="0.1.0",
+        description="WAV file and progressive PCM window transcription using Qwen3-ASR on CPU.",
+        version="0.2.0",
         lifespan=lifespan,
     )
     app.state.asr_service = service
+    app.state.streaming_service = streaming
+
+    @app.websocket("/ws/transcribe")
+    async def stream_transcribe(websocket: WebSocket):
+        await streaming.handle(websocket)
 
     @app.get("/health")
     def health(response: Response):
