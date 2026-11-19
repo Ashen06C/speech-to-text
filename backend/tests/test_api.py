@@ -77,6 +77,15 @@ class APITests(unittest.TestCase):
         self.assertEqual(body["window_ms"], self.settings.window_ms)
         self.assertGreaterEqual(body["model_load_time_seconds"], 0)
 
+    def test_system_returns_shared_cpu_sample(self):
+        sampler = self.client.app.state.cpu_sampler
+        with patch.object(sampler, "snapshot", return_value={
+            "system_cpu_percent": 42.5, "process_cpu_percent": 305.0,
+        }):
+            body = self.client.get("/api/system").json()
+        self.assertEqual(body["system_cpu_percent"], 42.5)
+        self.assertEqual(body["process_cpu_percent"], 305.0)
+
     def test_english_sample_and_model_reuse(self):
         payload = SAMPLE.read_bytes()
         for _ in range(2):

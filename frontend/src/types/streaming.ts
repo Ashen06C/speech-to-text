@@ -67,6 +67,8 @@ export interface Health {
 }
 
 export interface SystemInfo {
+  system_cpu_percent?: number | null;
+  process_cpu_percent?: number | null;
   cpu_logical_processors: number | null;
   cpu_physical_cores: number | null;
   total_ram_bytes: number;

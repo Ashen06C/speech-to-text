@@ -16,6 +16,7 @@ from backend.asr_service import ASRService, InferenceError, ModelNotLoadedError
 from backend.audio_service import AudioValidationError, decode_wav_upload
 from backend.config import Language, Settings
 from backend.streaming_service import StreamingService
+from backend.system_metrics import CPUSampler
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +34,7 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
     settings = settings if settings is not None else Settings()
     service = service if service is not None else ASRService(settings)
     streaming = StreamingService(service, settings)
+    cpu_sampler = CPUSampler()
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -41,9 +43,11 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
         except Exception:
             # Keep diagnostics available; transcription returns 503 until restart.
             logger.exception("ASR startup failed; check the existing model cache and dependencies")
+        cpu_sampler.start()
         try:
             yield
         finally:
+            await run_in_threadpool(cpu_sampler.stop)
             await streaming.shutdown()
             await run_in_threadpool(service.unload_model)
 
@@ -55,6 +59,7 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
     )
     app.state.asr_service = service
     app.state.streaming_service = streaming
+    app.state.cpu_sampler = cpu_sampler
 
     @app.websocket("/ws/transcribe")
     async def stream_transcribe(websocket: WebSocket):
@@ -78,6 +83,7 @@ def create_app(settings: Settings | None = None, service: ASRService | None = No
         torch = sys.modules.get("torch")
         return {
             "cpu_logical_processors": psutil.cpu_count(logical=True),
+            **cpu_sampler.snapshot(),
             "cpu_physical_cores": psutil.cpu_count(logical=False),
             "total_ram_bytes": ram,
             "total_ram_gb": round(ram / (1024**3), 2),

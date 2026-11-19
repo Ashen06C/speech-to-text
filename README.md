@@ -124,7 +124,7 @@ Swagger: **http://127.0.0.1:8000/docs**. Expand `POST /api/transcribe`, choose *
 
 Samples and verified references are mapped in [samples/multilingual_manifest.json](samples/multilingual_manifest.json). The English benchmark recording is `samples/audios/english.wav`; the original `samples/english.wav` and `test_asr.py` are preserved separately.
 
-The UI shows server latency, inference time and process memory. CPU percentage is explicitly **Not provided** in the dashboard; CPU utilization is recorded by benchmark tooling. Transmission progress is not inference progress.
+The UI shows server latency, inference time, process memory, overall system CPU and backend-process CPU. CPU is sampled every second and fetched by the dashboard approximately every five seconds. Backend CPU uses the raw psutil scale (100% is approximately one logical CPU) and may exceed 100%; child processes are excluded. Until the first sample is available, CPU shows **Unavailable**. Benchmark tooling separately records resource usage over the entire test. Transmission progress is not inference progress.
 
 ## Tests and measurements
 
